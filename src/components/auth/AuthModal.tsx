@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/stores/useAppStore';
 import { X } from 'lucide-react';
-import LoginForm from './LoginForm';
-import RegisterForm from './RegisterForm';
+import { useAuth } from '@/context/AuthContext';
+import AuthForms from './AuthForms';
 
 const AuthModal = () => {
   const { showAuthModal, setShowAuthModal } = useAppStore();
+  const { isAuthenticated } = useAuth();
   const [mode, setMode] = useState<'login' | 'register'>('login');
 
   const modalVariants = {
@@ -25,7 +26,7 @@ const AuthModal = () => {
     }
   };
 
-  if (!showAuthModal) return null;
+  if (!showAuthModal || isAuthenticated) return null;
 
   return (
     <AnimatePresence>
@@ -56,17 +57,11 @@ const AuthModal = () => {
 
           {/* Form */}
           <div className="p-8">
-            {mode === 'login' ? (
-              <LoginForm
-                onClose={() => setShowAuthModal(false)}
-                onSwitchToRegister={() => setMode('register')}
-              />
-            ) : (
-              <RegisterForm
-                onClose={() => setShowAuthModal(false)}
-                onSwitchToLogin={() => setMode('login')}
-              />
-            )}
+            <AuthForms
+              mode={mode}
+              setMode={setMode}
+              onClose={() => setShowAuthModal(false)}
+            />
           </div>
         </motion.div>
       </div>

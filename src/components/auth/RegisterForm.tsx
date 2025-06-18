@@ -68,6 +68,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onClose, onSwitchToLogin })
           title: 'تم إنشاء الحساب بنجاح',
           description: 'يرجى التحقق من بريدك الإلكتروني لتفعيل الحساب',
         });
+        onSwitchToLogin && onSwitchToLogin();
         onClose && onClose();
       }
     } catch (error) {
