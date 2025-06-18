@@ -74,7 +74,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) =>
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md mx-auto"
+      className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 w-full max-w-md mx-auto transition-all duration-300 hover:shadow-2xl"
     >
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-gray-900 mb-2">تسجيل الدخول</h2>
@@ -95,7 +95,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) =>
                     <Input
                       type="email"
                       placeholder="example@domain.com"
-                      className="pr-10 text-right"
+                      className="h-12 pr-10 pl-4 text-right rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm"
                       {...field}
                     />
                   </div>
@@ -117,7 +117,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) =>
                     <Input
                       type="password"
                       placeholder="••••••••"
-                      className="pr-10 text-right"
+                      className="h-12 pr-10 pl-4 text-right rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm"
                       {...field}
                     />
                   </div>
@@ -130,7 +130,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) =>
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-primary-500 hover:bg-primary-600 text-white py-3 rounded-xl font-medium transition-colors"
+            className="w-full py-3 text-white font-semibold bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg hover:from-blue-600 hover:to-indigo-600 transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-lg"
           >
             {isLoading ? (
               <>
@@ -151,7 +151,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) =>
               onClose();
               navigate('/reset-password');
             }}
-            className="text-primary-500 hover:text-primary-600 text-sm font-medium transition-colors"
+            className="text-primary-500 hover:text-primary-600 text-sm font-medium transition-colors duration-300"
           >
             نسيت كلمة المرور؟
           </button>
@@ -164,7 +164,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) =>
               onClose();
               onSwitchToRegister && onSwitchToRegister();
             }}
-            className="text-primary-500 hover:text-primary-600 font-medium transition-colors"
+            className="text-primary-500 hover:text-primary-600 font-medium transition-colors duration-300"
           >
             إنشاء حساب جديد
           </button>
