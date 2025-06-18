@@ -6,6 +6,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
 import { AuthLayout } from "@/layouts/AuthLayout";
+import LoadingOverlay from "@/components/LoadingOverlay";
+import RouteChangeListener from "@/components/RouteChangeListener";
 import Layout from "./components/layout/Layout";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
@@ -27,8 +29,10 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <LoadingOverlay />
       <AuthProvider>
         <BrowserRouter>
+          <RouteChangeListener />
           <Routes>
             {/* Public Routes */}
             <Route path="/" element={<Landing />} />

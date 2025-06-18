@@ -10,6 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Eye, EyeOff, ArrowRight } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
+import { useLoadingStore } from '@/stores/useLoadingStore';
 
 export default function Login() {
   const [loginCredentials, setLoginCredentials] = useState({
@@ -24,6 +25,9 @@ export default function Login() {
   });
   const [isLoading, setIsLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+
+  const showLoading = useLoadingStore((state) => state.showLoading);
+  const hideLoading = useLoadingStore((state) => state.hideLoading);
   
   const navigate = useNavigate();
   const location = useLocation();
@@ -51,6 +55,7 @@ export default function Login() {
     }
 
     setIsLoading(true);
+    showLoading();
     
     try {
       const result = await login(loginCredentials.email, loginCredentials.password);
@@ -76,6 +81,7 @@ export default function Login() {
       });
     } finally {
       setIsLoading(false);
+      hideLoading();
     }
   };
 
@@ -92,6 +98,7 @@ export default function Login() {
     }
 
     setIsLoading(true);
+    showLoading();
     
     try {
       const redirectUrl = `${window.location.origin}/`;
@@ -128,6 +135,7 @@ export default function Login() {
       });
     } finally {
       setIsLoading(false);
+      hideLoading();
     }
   };
 

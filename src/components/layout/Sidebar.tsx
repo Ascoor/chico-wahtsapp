@@ -4,6 +4,7 @@ import { motion, Variants } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { useAppStore } from '@/stores/useAppStore';
+import { useLoadingStore } from '@/stores/useLoadingStore';
 import { cn } from '@/lib/utils';
 import {
   LayoutDashboard, Calendar, Activity, Users, Shield, BarChart3,
@@ -14,6 +15,7 @@ import AppLogo from '@/components/ui/AppLogo';
 const Sidebar = () => {
   const { t } = useTranslation();
   const { sidebarOpen, setSidebarOpen, language } = useAppStore();
+  const showLoading = useLoadingStore((state) => state.showLoading);
 
   const menuItems = [
     { icon: LayoutDashboard, label: t('dashboard'), href: '/' },
@@ -78,6 +80,7 @@ const Sidebar = () => {
                 <div key={item.href}>
                   <NavLink
                     to={item.href}
+                    onClick={showLoading}
                     className={({ isActive }) =>
                       cn(
                         'flex items-center gap-3 px-4 py-2 rounded-lg font-medium transition-colors',
@@ -95,6 +98,7 @@ const Sidebar = () => {
                         <NavLink
                           key={sub.href}
                           to={sub.href}
+                          onClick={showLoading}
                           className={({ isActive }) =>
                             cn(
                               'flex items-center gap-2 px-3 py-1 rounded-md text-sm transition-colors',
