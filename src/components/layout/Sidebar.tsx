@@ -36,10 +36,10 @@ const Sidebar = () => {
   ];
 
   const sidebarVariants: Variants = {
-    open: { x: 0, transition: { type: "spring", stiffness: 300, damping: 30 } },
+    open: { x: 0, transition: { type: 'spring', stiffness: 300, damping: 30 } },
     closed: {
-      x: language === 'ar' ? 320 : -320,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
+      x: language === 'ar' ? 260 : -260,
+      transition: { type: 'spring', stiffness: 300, damping: 30 }
     }
   };
 
@@ -50,7 +50,7 @@ const Sidebar = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden"
+          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -59,22 +59,22 @@ const Sidebar = () => {
         variants={sidebarVariants}
         animate={sidebarOpen ? "open" : "closed"}
         className={cn(
-          'fixed top-0 h-full w-72 z-50 shadow-xl transition-transform duration-300 ease-out bg-white dark:bg-gray-900',
+          'fixed inset-y-0 flex w-64 flex-col bg-sidebar text-sidebar-foreground shadow-md transition-transform duration-300 lg:sticky lg:left-0 lg:top-0 lg:z-auto lg:translate-x-0',
           language === 'ar' ? 'right-0' : 'left-0'
         )}
       >
         <div className="flex flex-col h-full">
-<div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 ">
-  <div className="flex items-center gap-3">
-            <AppLogo location="sidebar" className="w-20  h-16"/>
-            <AppLogo location="topbar" className="w-36 h-32"/>
-          </div>
-            <button onClick={() => setSidebarOpen(false)} className="lg:hidden p-2 rounded-md hover:bg-white/10">
-              <X className="w-5 h-5 text-white" />
+          <div className="flex items-center justify-between p-4 bg-gradient-primary">
+            <AppLogo location="sidebar" className="w-20 h-16" />
+            <button
+              onClick={() => setSidebarOpen(false)}
+              className="p-2 text-white rounded-md lg:hidden"
+            >
+              <X className="w-5 h-5" />
             </button>
           </div>
 
-          <nav className="flex-1 p-4 overflow-y-auto bg-white dark:bg-gray-900">
+          <nav className="flex-1 p-4 overflow-y-auto">
             {menuItems.map((item) => {
               const Icon = item.icon;
               return (
