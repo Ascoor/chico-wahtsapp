@@ -17,8 +17,25 @@ export default {
 				'2xl': '1400px'
 			}
 		},
-		extend: {
+                extend: {
+                        fontFamily: {
+                                sans: ["Inter", "ui-sans-serif", "system-ui"],
+                        },
                         colors: {
+                            brand: {
+                                        primary: "#1D4ED8",
+                                        "primary-dark": "#2563EB",
+                                        secondary: "#9333EA",
+                                        accent: "#10B981",
+                                        background: {
+                                                light: "#F9FAFB",
+                                                dark: "#111827",
+                                        },
+                                        text: {
+                                                light: "#1F2937",
+                                                dark: "#F9FAFB",
+                                        },
+                                },
                                 border: 'hsl(var(--border))',
                                 input: 'hsl(var(--input))',
                                 ring: 'hsl(var(--ring))',
@@ -54,18 +71,21 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
+                                sidebar: {
+                                        DEFAULT: 'hsl(var(--sidebar-background))',
+                                        foreground: 'hsl(var(--sidebar-foreground))',
+                                        primary: 'hsl(var(--sidebar-primary))',
 					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
 					accent: 'hsl(var(--sidebar-accent))',
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
-			},
-			borderRadius: {
+                                }
+                        },
+                        backgroundImage: {
+                                'gradient-primary': 'linear-gradient(to right, #1D4ED8, #9333EA)',
+                        },
+                        borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
