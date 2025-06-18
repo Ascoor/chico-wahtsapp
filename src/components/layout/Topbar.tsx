@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '@/stores/useAppStore';
 import { useAuth } from '@/context/AuthContext';
+import { useLoadingStore } from '@/stores/useLoadingStore';
 import { cn } from '@/lib/utils';
 import { Menu, Sun, Moon, Globe, User, LogOut, Settings, UserCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -31,6 +32,7 @@ const Topbar = () => {
   } = useAppStore();
   
   const { user, logout, isAuthenticated } = useAuth();
+  const showLoading = useLoadingStore((state) => state.showLoading);
 
   const handleLanguageToggle = () => {
     const newLang = language === 'en' ? 'ar' : 'en';
@@ -38,14 +40,15 @@ const Topbar = () => {
     i18n.changeLanguage(newLang);
   };
 
-  const handleLogout = () => {
-    logout();
-    
+  const handleLogout = async () => {
+    showLoading();
+    await logout();
+
     toast({
       title: "تم تسجيل الخروج",
       description: "تم تسجيل خروجك بنجاح",
     });
-    
+
     navigate('/');
   };
 

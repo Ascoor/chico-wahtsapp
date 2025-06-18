@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from '@/hooks/use-toast';
+import { useLoadingStore } from '@/stores/useLoadingStore';
 
 const loginSchema = z.object({
   email: z.string().email('يرجى إدخال بريد إلكتروني صحيح'),
@@ -27,6 +28,8 @@ interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const showLoading = useLoadingStore((state) => state.showLoading);
+  const hideLoading = useLoadingStore((state) => state.hideLoading);
 
   const form = useForm<LoginForm>({
     resolver: zodResolver(loginSchema),
@@ -38,7 +41,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) =>
 
   const onSubmit = async (data: LoginForm) => {
     setIsLoading(true);
-    
+    showLoading();
+
     try {
       const { error } = await supabase.auth.signInWithPassword({
         email: data.email,
@@ -51,6 +55,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) =>
           description: error.message,
           variant: 'destructive',
         });
+        hideLoading();
       } else {
         toast({
           title: 'تم تسجيل الدخول بنجاح',
@@ -65,6 +70,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) =>
         description: 'حدث خطأ غير متوقع',
         variant: 'destructive',
       });
+      hideLoading();
     } finally {
       setIsLoading(false);
     }

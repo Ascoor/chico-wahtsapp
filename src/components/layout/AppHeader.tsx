@@ -31,6 +31,7 @@ import { useNavigate } from 'react-router-dom';
 import { useToast } from '@/hooks/use-toast';
 import { AppointmentModal } from '@/components/modals/AppointmentModal';
 import { StyleControlPanel } from '@/components/panels/StyleControlPanel';
+import { useLoadingStore } from '@/stores/useLoadingStore';
 
 export function AppHeader() {
   const { theme, setTheme } = useTheme();
@@ -38,6 +39,7 @@ export function AppHeader() {
   const { language, setLanguage, user, logout } = useAppStore();
   const navigate = useNavigate();
   const { toast } = useToast();
+  const showLoading = useLoadingStore((state) => state.showLoading);
   const [isAppointmentModalOpen, setIsAppointmentModalOpen] = useState(false);
   const [isStylePanelOpen, setIsStylePanelOpen] = useState(false);
 
@@ -71,9 +73,10 @@ export function AppHeader() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    showLoading();
     authService.logout();
-    logout();
+    await logout();
     toast({
       title: "تم تسجيل الخروج",
       description: "تم تسجيل خروجك بنجاح",
