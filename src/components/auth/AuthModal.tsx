@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAppStore } from '@/stores/useAppStore';
 import { X } from 'lucide-react';
 import LoginForm from './LoginForm';
+import RegisterForm from './RegisterForm';
 
 const AuthModal = () => {
   const { showAuthModal, setShowAuthModal } = useAppStore();
+  const [mode, setMode] = useState<'login' | 'register'>('login');
 
   const modalVariants = {
     hidden: { opacity: 0, scale: 0.8, y: 50 },
@@ -46,13 +48,25 @@ const AuthModal = () => {
             
             <div className="text-center text-white">
               <h1 className="text-2xl font-bold">Sports Booking</h1>
-              <p className="text-white/90 mt-1">تسجيل الدخول</p>
+              <p className="text-white/90 mt-1">
+                {mode === 'login' ? 'تسجيل الدخول' : 'إنشاء حساب'}
+              </p>
             </div>
           </div>
 
           {/* Form */}
           <div className="p-8">
-            <LoginForm onClose={() => setShowAuthModal(false)} />
+            {mode === 'login' ? (
+              <LoginForm
+                onClose={() => setShowAuthModal(false)}
+                onSwitchToRegister={() => setMode('register')}
+              />
+            ) : (
+              <RegisterForm
+                onClose={() => setShowAuthModal(false)}
+                onSwitchToLogin={() => setMode('login')}
+              />
+            )}
           </div>
         </motion.div>
       </div>

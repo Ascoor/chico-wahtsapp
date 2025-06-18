@@ -11,7 +11,6 @@ import RouteChangeListener from "@/components/RouteChangeListener";
 import Layout from "./components/layout/Layout";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -38,7 +37,6 @@ const App = () => (
             <Route path="/" element={<Landing />} />
             <Route path="/landing" element={<Landing />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             
             {/* Admin Routes */}

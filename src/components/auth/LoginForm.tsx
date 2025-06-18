@@ -21,9 +21,10 @@ type LoginForm = z.infer<typeof loginSchema>;
 
 interface LoginFormProps {
   onClose?: () => void;
+  onSwitchToRegister?: () => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onClose, onSwitchToRegister }) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -161,7 +162,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
           <button
             onClick={() => {
               onClose();
-              navigate('/register');
+              onSwitchToRegister && onSwitchToRegister();
             }}
             className="text-primary-500 hover:text-primary-600 font-medium transition-colors"
           >
