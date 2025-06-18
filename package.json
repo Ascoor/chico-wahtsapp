@@ -8,7 +8,11 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "db:check": "node scripts/db.js check",
+    "db:seed": "node scripts/db.js seed",
+    "db:tables": "node scripts/db.js tables",
+    "db:query": "node scripts/db.js query"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
