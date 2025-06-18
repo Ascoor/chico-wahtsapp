@@ -85,8 +85,8 @@ const Sidebar = () => {
                     className={({ isActive }) =>
                       cn(
                         'flex items-center gap-3 px-4 py-2 rounded-lg font-medium transition-colors',
-                        'text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-gray-800',
-                        isActive && 'bg-blue-100 dark:bg-gray-800 text-blue-600 dark:text-blue-300'
+                        'text-muted hover:bg-primary/5',
+                        isActive && 'bg-primary/10 text-primary'
                       )
                     }
                   >
@@ -103,8 +103,8 @@ const Sidebar = () => {
                           className={({ isActive }) =>
                             cn(
                               'flex items-center gap-2 px-3 py-1 rounded-md text-sm transition-colors',
-                              'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800',
-                              isActive && 'bg-blue-50 dark:bg-gray-700 text-blue-700 dark:text-blue-300'
+                              'text-muted hover:bg-primary/5',
+                              isActive && 'bg-primary/10 text-primary'
                             )
                           }
                         >
