@@ -103,7 +103,7 @@ export function AppHeader() {
                   variant="outline"
                   size="sm"
                   onClick={action.action}
-                  className="bg-gradient-to-r from-blue-500 to-purple-600 text-white border-0 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg"
+                  className="bg-gradient-to-r from-primary to-accent text-white border-0 hover:from-primary/80 hover:to-accent/80 transition-all duration-300 shadow-md hover:shadow-lg"
                 >
                   <action.icon className={`h-4 w-4 ${isRTL ? 'ml-1' : 'mr-1'}`} />
                   {action.title}
@@ -171,8 +171,8 @@ export function AppHeader() {
             {/* User menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-2 space-x-reverse hover:bg-gray-100 dark:hover:bg-gray-800 rounded-xl p-2">
-                  <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                <Button variant="ghost" className="flex items-center space-x-2 space-x-reverse hover:bg-background-desktop rounded-xl p-2">
+                  <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                     <User className="h-4 w-4 text-white" />
                   </div>
                   <div className="hidden md:block text-right">
