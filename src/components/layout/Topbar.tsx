@@ -27,6 +27,7 @@ const Topbar = () => {
     toggleTheme,
     language,
     setLanguage,
+    setShowAuthModal,
   } = useAppStore();
   
   const { user, logout, isAuthenticated } = useAuth();
@@ -149,7 +150,7 @@ const Topbar = () => {
               </DropdownMenuContent>
             </DropdownMenu>
           ) : (
-            <Button onClick={() => navigate('/login')} className="btn-primary">
+            <Button onClick={() => setShowAuthModal(true)} className="btn-primary">
               <span className="hidden sm:inline">تسجيل الدخول</span>
               <span className="inline sm:hidden"><User className="w-4 h-4" /></span>
             </Button>

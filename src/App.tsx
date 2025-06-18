@@ -3,14 +3,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "@/context/AuthContext";
 import { AuthLayout } from "@/layouts/AuthLayout";
 import LoadingOverlay from "@/components/LoadingOverlay";
 import RouteChangeListener from "@/components/RouteChangeListener";
 import Layout from "./components/layout/Layout";
 import Landing from "./pages/Landing";
-import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -36,7 +35,6 @@ const App = () => (
             {/* Public Routes */}
             <Route path="/" element={<Landing />} />
             <Route path="/landing" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             
             {/* Admin Routes */}
