@@ -24,7 +24,7 @@ import {
   Laptop
 } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface StyleControlPanelProps {
   isOpen: boolean;

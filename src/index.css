@@ -109,13 +109,15 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
 
   /* Headings */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-semibold text-foreground;
+    @apply font-semibold text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
 
   h1 {
@@ -162,20 +164,20 @@
 
   /* Surface styles */
   .surface {
-    @apply bg-surface border border-border;
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800;
   }
 
   .surface-elevated {
-    @apply bg-surface border border-border shadow-card dark:shadow-card-dark;
+    @apply bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 shadow-lg;
   }
 
   .surface-glass {
-    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-glass;
+    @apply bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border border-white/20 dark:border-gray-700/20 shadow-xl;
   }
 
   /* Card styles */
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-elevated dark:hover:shadow-elevated-dark hover:-translate-y-1;
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
   }
 
   .card-interactive {
@@ -184,7 +186,7 @@
 
   /* Text styles */
   .text-heading {
-    @apply text-gray-900 dark:text-gray-100 font-heading;
+    @apply text-gray-900 dark:text-gray-100;
   }
 
   .text-body {
@@ -196,16 +198,16 @@
   }
 
   .text-accent {
-    @apply text-accent-600 dark:text-accent-400;
+    @apply text-blue-600 dark:text-blue-400;
   }
 
   /* Button variants */
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-700 hover:to-primary-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-gradient-to-r from-secondary-600 to-secondary-500 hover:from-secondary-700 hover:to-secondary-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+    @apply bg-gradient-to-r from-gray-600 to-gray-500 hover:from-gray-700 hover:to-gray-600 text-white font-medium px-4 py-2 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
   }
 
   /* Navigation styles */
@@ -214,114 +216,11 @@
   }
 
   .nav-link-active {
-    @apply bg-gradient-to-r from-primary-500/10 to-primary-600/10 text-primary-600 dark:text-primary-500 shadow-lg shadow-primary-500/20;
+    @apply bg-gradient-to-r from-blue-500/10 to-blue-600/10 text-blue-600 dark:text-blue-500 shadow-lg shadow-blue-500/20;
   }
 
   .nav-link-inactive {
     @apply text-gray-700 dark:text-gray-300 hover:bg-gray-100/70 dark:hover:bg-gray-800/70 hover:scale-105;
-  }
-
-  /* Animation utilities */
-  .animate-enter {
-    @apply animate-fade-in;
-  }
-
-  .animate-slide-in-right {
-    @apply animate-slide-in-right;
-  }
-
-  .animate-slide-in-left {
-    @apply animate-slide-in-left;
-  }
-
-  /* Gradient backgrounds */
-  .gradient-primary {
-    @apply bg-gradient-to-br from-primary-50 via-white to-primary-100/50 dark:from-primary-950/20 dark:via-gray-900 dark:to-primary-900/10;
-  }
-
-  .gradient-surface {
-    @apply bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 dark:from-gray-950 dark:via-slate-900 dark:to-gray-900;
-  }
-
-  /* RTL support */
-  .rtl-flip {
-    transform: scaleX(-1);
-  }
-
-  [dir="rtl"] .rtl-auto {
-    transform: scaleX(-1);
-  }
-
-  /* Sidebar specific */
-  .sidebar-backdrop {
-    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden;
-  }
-
-  .sidebar-panel {
-    @apply fixed top-0 h-full w-80 surface-glass z-50 shadow-2xl transition-transform duration-300 ease-out;
-  }
-
-  .sidebar-panel-ltr {
-    @apply left-0;
-  }
-
-  .sidebar-panel-rtl {
-    @apply right-0;
-  }
-
-  /* Responsive utilities */
-  .hide-mobile {
-    @apply hidden md:block;
-  }
-
-  .show-mobile {
-    @apply block md:hidden;
-  }
-
-  .responsive-padding {
-    @apply px-4 sm:px-6 lg:px-8;
-  }
-
-  .responsive-margin {
-    @apply mx-4 sm:mx-6 lg:mx-8;
-  }
-}
-
-/* Utility layer */
-@layer utilities {
-  /* Spacing utilities */
-  .space-section {
-    @apply space-y-8;
-  }
-
-  .space-content {
-    @apply space-y-4;
-  }
-
-  .space-compact {
-    @apply space-y-2;
-  }
-
-  /* Border utilities */
-  .border-soft {
-    @apply border border-gray-200/60 dark:border-gray-700/60;
-  }
-
-  .border-strong {
-    @apply border-2 border-gray-300 dark:border-gray-600;
-  }
-
-  /* Transition utilities */
-  .transition-base {
-    @apply transition-all duration-200 ease-out;
-  }
-
-  .transition-slow {
-    @apply transition-all duration-300 ease-out;
-  }
-
-  .transition-fast {
-    @apply transition-all duration-150 ease-out;
   }
 }
 
@@ -362,58 +261,4 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-400 dark:bg-gray-500;
-}
-
-/* Loading and skeleton styles */
-@keyframes shimmer {
-  0% {
-    background-position: -200px 0;
-  }
-  100% {
-    background-position: calc(200px + 100%) 0;
-  }
-}
-
-.skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200px 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-.dark .skeleton {
-  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
-  background-size: 200px 100%;
-}
-
-/* Print styles */
-@media print {
-  .no-print {
-    display: none !important;
-  }
-
-  .print-break-inside-avoid {
-    break-inside: avoid;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .surface {
-    @apply border-2;
-  }
-  
-  .btn-primary {
-    @apply border-2 border-primary-700;
-  }
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }

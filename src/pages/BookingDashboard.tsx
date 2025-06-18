@@ -21,7 +21,7 @@ import {
   Target,
   Waves
 } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function BookingDashboard() {
   const { isRTL, t } = useLanguage();

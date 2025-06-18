@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { SidebarProvider } from '@/components/ui/sidebar';
+import { SidebarProvider } from './SidebarProvider';
 import { AppSidebar } from './AppSidebar';
 import { AppHeader } from './AppHeader';
 import { ThemeProvider } from 'next-themes';
-import { useLanguage } from '@/contexts/LanguageContext';
+import { useLanguage } from '@/context/LanguageContext';
 
 interface AppLayoutProps {
   children: React.ReactNode;

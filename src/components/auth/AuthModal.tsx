@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -10,7 +9,7 @@ import { Label } from '@/components/ui/label';
 
 const AuthModal = () => {
   const { t } = useTranslation();
-  const { showAuthModal, setShowAuthModal, setAuth } = useAppStore();
+  const { showAuthModal, setShowAuthModal, login } = useAppStore();
   const [isLogin, setIsLogin] = useState(true);
   const [formData, setFormData] = useState({
     email: '',
@@ -23,12 +22,13 @@ const AuthModal = () => {
     
     // Mock authentication
     const user = {
-      id: 1,
+      id: '1',
       name: formData.name || 'User',
       email: formData.email,
+      role: 'user' as const,
     };
     
-    setAuth(user);
+    login(user);
     setShowAuthModal(false);
     setFormData({ email: '', password: '', name: '' });
   };
