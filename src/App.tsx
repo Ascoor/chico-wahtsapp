@@ -14,6 +14,9 @@ import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard";
 import AdminDashboard from "./pages/admin/Dashboard";
+import Users from "./pages/Users";
+import Roles from "./pages/Roles";
+import Settings from "./pages/Settings";
 import Bookings from "./pages/Bookings";
 import Activities from "./pages/Activities";
 import Swimming from "./pages/Swimming";  
@@ -132,15 +135,16 @@ const App = () => (
               </AuthLayout>
             } />
             
+
             <Route path="/users" element={
               <AuthLayout requiredRole="admin">
-                <Layout><Dashboard /></Layout>
+                <Layout><Users /></Layout>
               </AuthLayout>
             } />
             
             <Route path="/roles" element={
               <AuthLayout requiredRole="admin">
-                <Layout><Dashboard /></Layout>
+                <Layout><Roles /></Layout>
               </AuthLayout>
             } />
             
@@ -152,7 +156,7 @@ const App = () => (
             
             <Route path="/settings" element={
               <AuthLayout>
-                <Layout><Dashboard /></Layout>
+                <Layout><Settings /></Layout>
               </AuthLayout>
             } />
             
