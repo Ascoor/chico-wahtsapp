@@ -19,11 +19,11 @@ const loginSchema = z.object({
 
 type LoginForm = z.infer<typeof loginSchema>;
 
-interface AuthCardProps {
-  onClose: () => void;
+interface LoginFormProps {
+  onClose?: () => void;
 }
 
-const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
+const LoginForm: React.FC<LoginFormProps> = ({ onClose }) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -173,4 +173,4 @@ const AuthCard: React.FC<AuthCardProps> = ({ onClose }) => {
   );
 };
 
-export default AuthCard;
+export default LoginForm;
