@@ -1,5 +1,5 @@
-const mysql = require('mysql2/promise');
-const fs = require('fs');
+import mysql from 'mysql2/promise';
+import fs from 'fs';
 
 // Read database URL from environment variables
 const DATABASE_URL = process.env.DATABASE_URL || '';
