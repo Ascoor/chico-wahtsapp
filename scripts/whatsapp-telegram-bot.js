@@ -1,9 +1,11 @@
-require('dotenv').config();
-const { Client, LocalAuth } = require('whatsapp-web.js');
-const TelegramBot = require('node-telegram-bot-api');
-const qrcode = require('qrcode');
-const fs = require('fs');
-const path = require('path');
+import dotenv from 'dotenv';
+import { Client, LocalAuth } from 'whatsapp-web.js';
+import TelegramBot from 'node-telegram-bot-api';
+import * as qrcode from 'qrcode';
+import fs from 'fs';
+import path from 'path';
+
+dotenv.config();
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
