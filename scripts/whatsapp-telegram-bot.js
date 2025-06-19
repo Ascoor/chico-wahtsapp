@@ -1,9 +1,11 @@
 import dotenv from 'dotenv';
-import { Client, LocalAuth } from 'whatsapp-web.js';
+import whatsappWeb from 'whatsapp-web.js';
 import TelegramBot from 'node-telegram-bot-api';
 import * as qrcode from 'qrcode';
 import fs from 'fs';
 import path from 'path';
+
+const { Client, LocalAuth } = whatsappWeb;
 
 dotenv.config();
 
