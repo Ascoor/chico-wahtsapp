@@ -112,10 +112,21 @@ telegramBot.on('message', async (msg) => {
   } else if (text === '/reset') {
     telegramBot.sendMessage(TELEGRAM_CHAT_ID, '🗑️ جارٍ إعادة تعيين الجلسة...');
     clearSession();
-    whatsappClient.destroy().then(() => {
-      console.log('تم إنهاء جلسة واتساب القديمة.');
+    if (whatsappClient && whatsappClient.pupBrowser) {
+      whatsappClient
+        .destroy()
+        .then(() => {
+          console.log('تم إنهاء جلسة واتساب القديمة.');
+        })
+        .catch((err) => {
+          console.error('خطأ أثناء إنهاء جلسة واتساب:', err);
+        })
+        .finally(() => {
+          initWhatsApp();
+        });
+    } else {
       initWhatsApp();
-    });
+    }
   } else {
     telegramBot.sendMessage(
       TELEGRAM_CHAT_ID,
