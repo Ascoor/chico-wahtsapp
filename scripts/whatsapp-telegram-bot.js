@@ -7,12 +7,18 @@ const path = require('path');
 
 const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+const WHATSAPP_SESSION_ID = process.env.WHATSAPP_SESSION_ID || 'default';
+
+if (!TELEGRAM_TOKEN || !TELEGRAM_CHAT_ID) {
+  console.error('TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set');
+  process.exit(1);
+}
 
 let lastQR = null;
 let isReady = false;
 
 const telegramBot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
-const sessionDir = path.resolve(__dirname, 'whatsapp-session');
+const sessionDir = path.resolve(process.cwd(), '.wwebjs_auth', WHATSAPP_SESSION_ID);
 
 function clearSession() {
   if (fs.existsSync(sessionDir)) {
@@ -29,7 +35,7 @@ let whatsappClient;
 
 function initWhatsApp() {
   whatsappClient = new Client({
-    authStrategy: new LocalAuth({ clientId: 'default' }),
+    authStrategy: new LocalAuth({ clientId: WHATSAPP_SESSION_ID }),
     puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'] },
   });
 
@@ -81,8 +87,11 @@ telegramBot.on('message', async (msg) => {
 
   const text = msg.text.trim();
 
-  if (text === '/start') {
-    telegramBot.sendMessage(TELEGRAM_CHAT_ID, 'مرحباً! بوت واتساب جاهز. الأوامر:\n/getqr\n/status\n/reset');
+  if (text === '/start' || text === '/help') {
+    telegramBot.sendMessage(
+      TELEGRAM_CHAT_ID,
+      'مرحباً! الأوامر المتاحة:\n/getqr - رمز QR الحالي\n/status - حالة الاتصال\n/reset - حذف الجلسة وإعادة المصادقة'
+    );
   } else if (text === '/getqr') {
     if (lastQR) {
       qrcode.toBuffer(lastQR, { type: 'png' }, (err, buffer) => {
@@ -105,7 +114,10 @@ telegramBot.on('message', async (msg) => {
       initWhatsApp();
     });
   } else {
-    telegramBot.sendMessage(TELEGRAM_CHAT_ID, 'أمر غير معروف. الأوامر المتاحة:\n/start\n/getqr\n/status\n/reset');
+    telegramBot.sendMessage(
+      TELEGRAM_CHAT_ID,
+      'أمر غير معروف. ارسل /help لعرض جميع الأوامر.'
+    );
   }
 });
 
