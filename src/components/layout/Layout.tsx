@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { useAppStore } from '@/stores/useAppStore';
-import { ModernSidebar } from './modernSidebar';
+import SidebarRail from './SidebarRail';
 import Topbar from './Topbar';
 import AuthModal from '@/components/auth/AuthModal';
 import { cn } from '@/lib/utils';
@@ -19,21 +19,23 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const isRTL = language === 'ar';
 
   return (
-    <div className={cn(
-      'min-h-screen flex bg-background transition-all duration-300 ease-in-out',
-      isRTL ? 'flex-row-reverse' : 'flex-row'
-    )}>
-      {/* Modern Sidebar */}
-      <ModernSidebar />
+    <div
+      className={cn(
+        'min-h-screen flex bg-background transition-all duration-200 ease-in-out',
+        isRTL ? 'flex-row-reverse' : 'flex-row'
+      )}
+    >
+      {/* Sidebar */}
+      <SidebarRail />
 
       {/* Main Content Area */}
-      <div className={cn(
-        'flex-1 flex flex-col min-h-screen transition-all duration-300 ease-in-out',
-        // Desktop spacing adjustment when sidebar is expanded
-        sidebarOpen ? 'lg:ml-64' : 'lg:ml-16',
-        isRTL && sidebarOpen && 'lg:ml-0 lg:mr-64',
-        isRTL && !sidebarOpen && 'lg:ml-0 lg:mr-16'
-      )}>
+      <div
+        className={cn(
+          'flex flex-col flex-1 min-h-screen transition-all duration-200 ease-in-out',
+          sidebarOpen ? '2xl:ml-sidebar-full' : '2xl:ml-sidebar-mini',
+          isRTL && (sidebarOpen ? '2xl:ml-0 2xl:mr-sidebar-full' : '2xl:ml-0 2xl:mr-sidebar-mini')
+        )}
+      >
         {/* Topbar */}
         <Topbar />
         
