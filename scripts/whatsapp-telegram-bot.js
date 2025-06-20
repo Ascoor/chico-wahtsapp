@@ -1,138 +1,0 @@
-import dotenv from 'dotenv';
-import whatsapp from 'whatsapp-web.js';
-const { Client, LocalAuth } = whatsapp;
-import TelegramBot from 'node-telegram-bot-api';
-import * as qrcode from 'qrcode';
-import fs from 'fs';
-import path from 'path';
-
-dotenv.config();
-
-const TELEGRAM_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-const WHATSAPP_SESSION_ID = process.env.WHATSAPP_SESSION_ID || 'default';
-
-if (!TELEGRAM_TOKEN || !TELEGRAM_CHAT_ID) {
-  console.error('TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID must be set');
-  process.exit(1);
-}
-
-let lastQR = null;
-let isReady = false;
-
-const telegramBot = new TelegramBot(TELEGRAM_TOKEN, { polling: true });
-const sessionDir = path.resolve(process.cwd(), '.wwebjs_auth', WHATSAPP_SESSION_ID);
-
-function clearSession() {
-  if (fs.existsSync(sessionDir)) {
-    fs.rmSync(sessionDir, { recursive: true, force: true });
-    console.log('✅ تم حذف جلسة واتساب.');
-    telegramBot.sendMessage(TELEGRAM_CHAT_ID, '🗑️ تم حذف جلسة واتساب، سيتم إعادة المصادقة عند التشغيل التالي.');
-  } else {
-    console.log('⚠️ لا توجد جلسة محفوظة للحذف.');
-    telegramBot.sendMessage(TELEGRAM_CHAT_ID, '⚠️ لا توجد جلسة محفوظة ليتم حذفها.');
-  }
-}
-
-let whatsappClient;
-
-function initWhatsApp() {
-  whatsappClient = new Client({
-    authStrategy: new LocalAuth({ clientId: WHATSAPP_SESSION_ID }),
-    puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'] },
-  });
-
-  whatsappClient.on('qr', (qr) => {
-    lastQR = qr;
-    isReady = false;
-    console.log('رمز QR تم استلامه:');
-    qrcode.generate(qr, { small: true });
-    qrcode.toBuffer(qr, { type: 'png' }, (err, buffer) => {
-      if (err) {
-        console.error('فشل توليد صورة رمز QR:', err);
-        return;
-      }
-      telegramBot.sendPhoto(TELEGRAM_CHAT_ID, buffer, { caption: '📲 امسح رمز QR في واتساب بيزنس' });
-    });
-  });
-
-  whatsappClient.on('ready', () => {
-    isReady = true;
-    lastQR = null;
-    console.log('واتساب جاهز!');
-    telegramBot.sendMessage(TELEGRAM_CHAT_ID, '✅ تم تسجيل الدخول في واتساب بنجاح.');
-  });
-
-  whatsappClient.on('auth_failure', () => {
-    isReady = false;
-    console.log('فشل في المصادقة في واتساب!');
-    telegramBot.sendMessage(TELEGRAM_CHAT_ID, '⚠️ فشل في المصادقة! يرجى حذف الجلسة وإعادة المصادقة.');
-  });
-
-  whatsappClient.on('disconnected', (reason) => {
-    isReady = false;
-    console.log('تم قطع الاتصال: ', reason);
-    telegramBot.sendMessage(TELEGRAM_CHAT_ID, `⚠️ تم قطع الاتصال! السبب: ${reason}`);
-  });
-
-  whatsappClient.on('message', async msg => {
-    console.log(`رسالة من ${msg.from}: ${msg.body}`);
-    await msg.reply('تم استلام رسالتك، شكراً!');
-  });
-
-  whatsappClient.initialize();
-}
-
-initWhatsApp();
-
-telegramBot.on('message', async (msg) => {
-  if (msg.chat.id.toString() !== TELEGRAM_CHAT_ID) return;
-
-  const text = msg.text.trim();
-
-  if (text === '/start' || text === '/help') {
-    telegramBot.sendMessage(
-      TELEGRAM_CHAT_ID,
-      'مرحباً! الأوامر المتاحة:\n/getqr - رمز QR الحالي\n/status - حالة الاتصال\n/reset - حذف الجلسة وإعادة المصادقة'
-    );
-  } else if (text === '/getqr') {
-    if (lastQR) {
-      qrcode.toBuffer(lastQR, { type: 'png' }, (err, buffer) => {
-        if (err) {
-          telegramBot.sendMessage(TELEGRAM_CHAT_ID, 'حدث خطأ في توليد رمز QR.');
-          return;
-        }
-        telegramBot.sendPhoto(TELEGRAM_CHAT_ID, buffer, { caption: '📲 رمز QR الحالي' });
-      });
-    } else {
-      telegramBot.sendMessage(TELEGRAM_CHAT_ID, 'لا يوجد رمز QR حالياً.');
-    }
-  } else if (text === '/status') {
-    telegramBot.sendMessage(TELEGRAM_CHAT_ID, isReady ? '✅ واتساب متصل وجاهز.' : '❌ واتساب غير متصل.');
-  } else if (text === '/reset') {
-    telegramBot.sendMessage(TELEGRAM_CHAT_ID, '🗑️ جارٍ إعادة تعيين الجلسة...');
-    clearSession();
-    if (whatsappClient && whatsappClient.pupBrowser) {
-      whatsappClient
-        .destroy()
-        .then(() => {
-          console.log('تم إنهاء جلسة واتساب القديمة.');
-        })
-        .catch((err) => {
-          console.error('خطأ أثناء إنهاء جلسة واتساب:', err);
-        })
-        .finally(() => {
-          initWhatsApp();
-        });
-    } else {
-      initWhatsApp();
-    }
-  } else {
-    telegramBot.sendMessage(
-      TELEGRAM_CHAT_ID,
-      'أمر غير معروف. ارسل /help لعرض جميع الأوامر.'
-    );
-  }
-});
-
-console.log('بوت بدأ التشغيل...');
