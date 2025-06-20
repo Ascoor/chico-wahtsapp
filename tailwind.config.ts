@@ -18,6 +18,25 @@ export default {
 			}
 		},
                 extend: {
+                        width: {
+                                'sidebar-mini': '5rem',
+                                'sidebar-full': '18rem',
+                                'spinner-xs': '1rem',
+                                'spinner-sm': '1.5rem',
+                                'spinner-md': '2rem',
+                                'spinner-lg': '3rem',
+                                'spinner-xl': '4rem'
+                        },
+                        transitionProperty: {
+                                sidebar: 'margin,width'
+                        },
+                        height: {
+                                'spinner-xs': '1rem',
+                                'spinner-sm': '1.5rem',
+                                'spinner-md': '2rem',
+                                'spinner-lg': '3rem',
+                                'spinner-xl': '4rem'
+                        },
                         fontFamily: {
                                 sans: ["Inter", "ui-sans-serif", "system-ui"],
                         },
@@ -90,7 +109,7 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
 			},
-			keyframes: {
+                        keyframes: {
 				'accordion-down': {
 					from: {
 						height: '0'
