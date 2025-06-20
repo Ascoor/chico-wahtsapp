@@ -20,8 +20,8 @@ export const SidebarRail: React.FC = () => {
   const isRTL = language === 'ar';
 
   const sidebarVariants: Variants = {
-    open: { x: 0 },
-    closed: { x: isRTL ? 280 : -280 }
+    open: {},
+    closed: {}
   };
 
   return (
@@ -32,7 +32,7 @@ export const SidebarRail: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm block lg:hidden transition-all duration-200 ease-in-out"
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm block xl:hidden transition-all duration-200 ease-in-out"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -45,11 +45,10 @@ export const SidebarRail: React.FC = () => {
           'fixed top-0 z-50 h-screen bg-sidebar border-sidebar-border shadow-xl flex flex-col',
           'transition-all duration-200 ease-in-out',
           isRTL ? 'right-0 border-l' : 'left-0 border-r',
-          sidebarOpen ? 'w-sidebar-full' : 'w-sidebar-mini',
-          'lg:translate-x-0',
-          sidebarOpen ? '' : isRTL ? 'translate-x-full lg:translate-x-0' : '-translate-x-full lg:translate-x-0',
-          'hidden lg:flex',
-          '2xl:w-sidebar-full'
+          sidebarOpen ? 'w-full xl:w-sidebar-full' : 'w-sidebar-mini',
+          'xl:translate-x-0',
+          sidebarOpen ? '' : isRTL ? 'translate-x-full xl:translate-x-0' : '-translate-x-full xl:translate-x-0',
+          'flex'
         )}
         role="navigation"
         aria-label={t('navigation.main')}
@@ -59,7 +58,7 @@ export const SidebarRail: React.FC = () => {
             <SidebarNavGroup
               key={group.label}
               group={group}
-              isCollapsed={typeof window !== 'undefined' && window.innerWidth < 1536}
+              isCollapsed={!sidebarOpen}
               currentPath={location.pathname}
               isRTL={isRTL}
             />
