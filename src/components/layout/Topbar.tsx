@@ -18,7 +18,11 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useToast } from '@/hooks/use-toast';
 
-const Topbar = () => {
+interface TopbarProps {
+  className?: string;
+}
+
+const Topbar: React.FC<TopbarProps> = ({ className }) => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -62,7 +66,10 @@ const Topbar = () => {
 
   return (
     <motion.header
-      className="sticky top-0 z-30 w-full border-b shadow-sm border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
+      className={cn(
+        'sticky top-0 z-30 w-full border-b shadow-sm border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900',
+        className
+      )}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 300, damping: 30 }}
