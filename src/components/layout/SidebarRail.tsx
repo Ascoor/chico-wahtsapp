@@ -32,7 +32,7 @@ export const SidebarRail: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm xl:hidden"
+          className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm block lg:hidden transition-all duration-200 ease-in-out"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -46,8 +46,9 @@ export const SidebarRail: React.FC = () => {
           'transition-all duration-200 ease-in-out',
           isRTL ? 'right-0 border-l' : 'left-0 border-r',
           sidebarOpen ? 'w-sidebar-full' : 'w-sidebar-mini',
-          'xl:translate-x-0',
-          sidebarOpen ? '' : isRTL ? 'translate-x-full xl:translate-x-0' : '-translate-x-full xl:translate-x-0',
+          'lg:translate-x-0',
+          sidebarOpen ? '' : isRTL ? 'translate-x-full lg:translate-x-0' : '-translate-x-full lg:translate-x-0',
+          'hidden lg:flex',
           '2xl:w-sidebar-full'
         )}
         role="navigation"

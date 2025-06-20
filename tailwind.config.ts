@@ -19,7 +19,7 @@ export default {
 		},
                 extend: {
                         width: {
-                                'sidebar-mini': '5rem',
+                                'sidebar-mini': '4rem',
                                 'sidebar-full': '18rem',
                                 'spinner-xs': '1rem',
                                 'spinner-sm': '1.5rem',

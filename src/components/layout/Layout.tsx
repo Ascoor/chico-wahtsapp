@@ -18,6 +18,17 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const isRTL = language === 'ar';
 
+  const marginClasses = cn(
+    'transition-all duration-200 ease-in-out',
+    sidebarOpen
+      ? isRTL
+        ? '2xl:mr-72'
+        : '2xl:ml-72'
+      : isRTL
+        ? 'lg:mr-16 2xl:mr-16'
+        : 'lg:ml-16 2xl:ml-16'
+  );
+
   return (
     <div
       className={cn(
@@ -32,15 +43,14 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div
         className={cn(
           'flex flex-col flex-1 min-h-screen transition-all duration-200 ease-in-out',
-          sidebarOpen ? '2xl:ml-sidebar-full' : '2xl:ml-sidebar-mini',
-          isRTL && (sidebarOpen ? '2xl:ml-0 2xl:mr-sidebar-full' : '2xl:ml-0 2xl:mr-sidebar-mini')
+          marginClasses
         )}
       >
         {/* Topbar */}
-        <Topbar />
+        <Topbar className={marginClasses} />
         
         {/* Page Content */}
-        <main className="flex-1 overflow-auto bg-gradient-to-br from-background to-muted/20">
+        <main className={cn('flex-1 overflow-auto bg-gradient-to-br from-background to-muted/20', marginClasses)}>
           <div className="container mx-auto p-6 max-w-7xl">
             {children}
           </div>
