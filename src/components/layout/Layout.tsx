@@ -28,15 +28,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const isRTL = language === 'ar';
 
-  const marginClasses = cn(
+  const paddingClasses = cn(
     'transition-all duration-200 ease-in-out',
     sidebarOpen
       ? isRTL
-        ? 'lg:mr-72'
-        : 'lg:ml-72'
+        ? 'lg:pr-72'
+        : 'lg:pl-72'
       : isRTL
-        ? 'lg:mr-16'
-        : 'lg:ml-16'
+        ? 'lg:pr-16'
+        : 'lg:pl-16'
   );
 
   return (
@@ -54,10 +54,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         className="flex flex-col flex-1 min-h-screen transition-all duration-200 ease-in-out"
       >
         {/* Topbar */}
-        <Topbar className={marginClasses} />
+        <Topbar className={paddingClasses} />
         
         {/* Page Content */}
-        <main className={cn('flex-1 overflow-auto bg-gradient-to-br from-background to-muted/20', marginClasses)}>
+        <main className={cn('flex-1 overflow-auto bg-gradient-to-br from-background to-muted/20', paddingClasses)}>
           <div className="container mx-auto p-6 max-w-7xl">
             {children}
           </div>

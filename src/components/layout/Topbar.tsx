@@ -67,7 +67,7 @@ const Topbar: React.FC<TopbarProps> = ({ className }) => {
   return (
     <motion.header
       className={cn(
-        'sticky top-0 z-30 w-full border-b shadow-sm border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900',
+        'sticky top-0 z-[60] w-full border-b shadow-sm border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900',
         className
       )}
       initial={{ y: -100 }}
@@ -142,9 +142,9 @@ const Topbar: React.FC<TopbarProps> = ({ className }) => {
                   </div>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                align="end" 
-                className="w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+              <DropdownMenuContent
+                align="end"
+                className="z-[70] w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
               >
                 <DropdownMenuItem 
                   onClick={handleProfile}
