@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import type { LucideIcon } from 'lucide-react';
 import { 
   Calendar, 
   Users, 
@@ -82,7 +83,16 @@ export function AppSidebar() {
   const isCollapsed = !sidebarOpen;
   const isRTL = language === 'ar';
 
-  const NavItem = ({ item }: { item: any }) => (
+  interface NavItemProps {
+    item: {
+      title: string;
+      url: string;
+      icon: LucideIcon;
+      gradient: string;
+    };
+  }
+
+  const NavItem = ({ item }: NavItemProps) => (
     <div className="mb-2">
       <NavLink
         to={item.url}

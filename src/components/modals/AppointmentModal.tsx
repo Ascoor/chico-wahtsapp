@@ -65,10 +65,24 @@ const appointmentSchema = z.object({
 
 type AppointmentFormData = z.infer<typeof appointmentSchema>;
 
+interface Appointment {
+  id: string;
+  clientPhone: string;
+  clientName: string;
+  activityType: string;
+  selectedType: string;
+  selectedDate: Date;
+  selectedTime: string;
+  duration: number;
+  price: number;
+  status: string;
+  notes?: string;
+}
+
 interface AppointmentModalProps {
   isOpen: boolean;
   onClose: () => void;
-  appointment?: any;
+  appointment?: Appointment;
   mode?: 'create' | 'edit' | 'view';
 }
 
@@ -91,8 +105,8 @@ const timeSlots = [
 
 export function AppointmentModal({ isOpen, onClose, appointment, mode = 'create' }: AppointmentModalProps) {
   const [activeTab, setActiveTab] = useState<'details' | 'management'>('details');
-  const [appointments, setAppointments] = useState<any[]>([]);
-  const [selectedAppointment, setSelectedAppointment] = useState<any>(null);
+  const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [selectedAppointment, setSelectedAppointment] = useState<Appointment | null>(null);
 
   const form = useForm<AppointmentFormData>({
     resolver: zodResolver(appointmentSchema),
@@ -189,7 +203,7 @@ export function AppointmentModal({ isOpen, onClose, appointment, mode = 'create'
     onClose();
   };
 
-  const handleEdit = (appointment: any) => {
+  const handleEdit = (appointment: Appointment) => {
     setSelectedAppointment(appointment);
     form.reset({
       clientPhone: appointment.clientPhone,
