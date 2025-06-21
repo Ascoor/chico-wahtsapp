@@ -19,19 +19,11 @@ export function SidebarHeader() {
     >
       {sidebarOpen ? (
         <div className="flex items-center gap-2">
-          <img src="/logo-day.png" alt="Sports Hub" className="h-10 w-auto" />
-          <img
-            src="/logo-patrens.png"
-            alt="Sports Hub mark"
-            className="h-10 w-auto"
-          />
+          <AppLogo className="h-8" />
+          <AppLogo variant="secondary" className="h-8" />
         </div>
       ) : (
-        <img
-          src="/logo-patrens.png"
-          alt="Sports Hub mark"
-          className="h-8 w-auto"
-        />
+        <AppLogo variant="secondary" className="h-8" />
       )}
 
       {sidebarOpen && (

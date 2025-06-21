@@ -92,9 +92,9 @@ export function AppHeader() {
           <div className={`flex items-center space-x-3 ${isRTL ? 'space-x-reverse' : ''}`}>
             <Button
               variant="ghost"
-              size="sm"
+              size="icon"
               onClick={toggleSidebar}
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+              className="backdrop-blur-md bg-background/60 hover:bg-background/70 transition-colors"
             >
               <Menu className="h-5 w-5" />
             </Button>
@@ -134,9 +134,9 @@ export function AppHeader() {
               variant="ghost"
               size="icon"
               onClick={() => setIsStylePanelOpen(true)}
-              className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
+              className="backdrop-blur-md bg-background/60 hover:bg-background/70 transition-colors rounded-full"
             >
-              <Palette className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+              <Palette className="h-5 w-5" />
             </Button>
 
             {/* Language toggle */}
@@ -144,14 +144,14 @@ export function AppHeader() {
               variant="ghost"
               size="icon"
               onClick={toggleLanguage}
-              className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
+              className="backdrop-blur-md bg-background/60 hover:bg-background/70 transition-colors rounded-full"
             >
-              <Languages className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+              <Languages className="h-5 w-5" />
             </Button>
 
             {/* Notifications */}
-            <Button variant="ghost" size="icon" className="relative hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
-              <Bell className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+            <Button variant="ghost" size="icon" className="relative backdrop-blur-md bg-background/60 hover:bg-background/70 transition-colors rounded-full">
+              <Bell className="h-5 w-5" />
               <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-red-500 text-white text-xs">
                 3
               </Badge>
@@ -162,19 +162,22 @@ export function AppHeader() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
+              className="backdrop-blur-md bg-background/60 hover:bg-background/70 transition-colors rounded-full"
             >
               {theme === 'dark' ? (
-                <Sun className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                <Sun className="h-5 w-5" />
               ) : (
-                <Moon className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                <Moon className="h-5 w-5" />
               )}
             </Button>
 
             {/* User menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-2 space-x-reverse hover:bg-background-desktop rounded-xl p-2">
+                <Button
+                  variant="ghost"
+                  className="flex items-center space-x-2 space-x-reverse backdrop-blur-md bg-background/60 hover:bg-background/70 transition-colors p-2 rounded-xl"
+                >
                   <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                     <User className="h-4 w-4 text-white" />
                   </div>
