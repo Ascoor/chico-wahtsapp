@@ -9,7 +9,7 @@ import { Plus, Edit, Trash2, Users } from 'lucide-react';
 import { coachesService, Coach } from '@/services/coaches';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { CoachForm } from '@/components/forms/CoachForm';
-import { ConfirmDeleteModal } from '@/components/forms/ConfirmDeleteModal';
+import ConfirmDeleteModal from '@/components/forms/ConfirmDeleteModal';
 import { toast } from 'sonner';
 
 const Coaches: React.FC = () => {
