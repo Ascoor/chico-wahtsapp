@@ -1,134 +1,69 @@
 
 import {
   LayoutDashboard,
-  Calendar,
   Users,
   Shield,
-  BarChart3,
   Settings,
-  Building,
-  Waves,
   MapPin,
   CreditCard,
   User,
-  UserCheck
+  UserCheck,
+  School,
+  Clock,
+  GraduationCap,
+  DollarSign
 } from 'lucide-react';
 
 export const sidebarConfig = {
   groups: [
     {
-      label: 'navigation.main',
+      label: 'لوحة التحكم',
       items: [
         {
           href: '/dashboard',
           label: 'لوحة التحكم',
           icon: LayoutDashboard,
           badge: null
-        },
-        {
-          href: '/admin/dashboard',
-          label: 'لوحة التحكم الرئيسية',
-          icon: LayoutDashboard,
-          badge: 'admin'
         }
       ]
     },
     {
-      label: 'إدارة المرافق',
+      label: 'السباحة',
       items: [
-        {
-          href: '/admin/facilities',
-          label: 'إدارة المرافق',
-          icon: Building,
-          badge: 'admin'
-        },
-        {
-          href: '/activities/swimming',
-          label: 'أنشطة السباحة',
-          icon: Waves,
-          badge: null
-        },
-        {
-          href: '/activities/fields',
-          label: 'أنشطة الملاعب',
-          icon: MapPin,
-          badge: null
-        }
+        { href: '/swimming/schools', label: 'المدارس', icon: School, badge: null },
+        { href: '/swimming/private', label: 'البرايفيت', icon: Users, badge: null },
+        { href: '/swimming/free-time', label: 'الفترة الحرة', icon: Clock, badge: null }
       ]
     },
     {
-      label: 'إدارة الحجوزات',
+      label: 'كرة القدم',
       items: [
-        {
-          href: '/bookings',
-          label: 'الحجوزات',
-          icon: Calendar,
-          badge: null
-        },
-        {
-          href: '/admin/bookings',
-          label: 'إدارة الحجوزات',
-          icon: Calendar,
-          badge: 'admin'
-        },
-        {
-          href: '/payments',
-          label: 'المدفوعات',
-          icon: CreditCard,
-          badge: null
-        }
+        { href: '/football/academy', label: 'الأكاديمية', icon: GraduationCap, badge: null },
+        { href: '/football/schools', label: 'المدارس', icon: School, badge: null },
+        { href: '/football/fields', label: 'إدارة الملاعب', icon: MapPin, badge: null }
       ]
     },
     {
-      label: 'إدارة المستخدمين',
+      label: 'العملاء والأفراد',
       items: [
-        {
-          href: '/clients',
-          label: 'العملاء',
-          icon: Users,
-          badge: null
-        },
-        {
-          href: '/users',
-          label: 'المستخدمين',
-          icon: User,
-          badge: null
-        },
-        {
-          href: '/players',
-          label: 'اللاعبين',
-          icon: User,
-          badge: 'new'
-        },
-        {
-          href: '/coaches',
-          label: 'المدربين',
-          icon: UserCheck,
-          badge: 'new'
-        }
+        { href: '/clients', label: 'العملاء', icon: Users, badge: null },
+        { href: '/coaches', label: 'المدربين', icon: UserCheck, badge: null },
+        { href: '/players', label: 'اللاعبين', icon: User, badge: null }
       ]
     },
     {
-      label: 'الإدارة والإعدادات',
+      label: 'التطبيق',
       items: [
-        {
-          href: '/roles',
-          label: 'الأدوار والصلاحيات',
-          icon: Shield,
-          badge: 'admin'
-        },
-        {
-          href: '/reports',
-          label: 'التقارير',
-          icon: BarChart3,
-          badge: null
-        },
-        {
-          href: '/settings',
-          label: 'الإعدادات',
-          icon: Settings,
-          badge: null
-        }
+        { href: '/settings', label: 'الإعدادات', icon: Settings, badge: null },
+        { href: '/roles', label: 'الصلاحيات والأدوار', icon: Shield, badge: null },
+        { href: '/users', label: 'المستخدمين', icon: User, badge: null }
+      ]
+    },
+    {
+      label: 'الشؤون المالية',
+      items: [
+        { href: '/finance/collections', label: 'التحصيل', icon: CreditCard, badge: null },
+        { href: '/finance/pricing', label: 'تسعير الخدمات', icon: DollarSign, badge: null }
       ]
     }
   ]
