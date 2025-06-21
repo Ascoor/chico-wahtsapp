@@ -7,7 +7,7 @@ import { useAppStore } from '@/stores/useAppStore';
 import { useAuth } from '@/context/AuthContext';
 import { useLoadingStore } from '@/stores/useLoadingStore';
 import { cn } from '@/lib/utils';
-import { Menu, Sun, Moon, Globe, User, LogOut, Settings, UserCircle } from 'lucide-react';
+import { Menu, Sun, Moon, Globe, User, LogOut, Settings, UserCircle, Bell } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -78,9 +78,12 @@ const Topbar: React.FC<TopbarProps> = ({ className }) => {
         <div className="flex items-center gap-4">
           <Button
             variant="ghost"
-            size="sm"
+            size="icon"
             onClick={toggleSidebar}
-            className={cn(language === 'ar' ? 'ml-auto' : 'mr-auto')}
+            className={cn(
+              language === 'ar' ? 'ml-auto' : 'mr-auto',
+              'rounded-lg backdrop-blur-md bg-white/40 dark:bg-gray-800/40 hover:bg-white/60 dark:hover:bg-gray-700/60 transition-colors'
+            )}
             aria-label="Toggle sidebar"
           >
             <Menu className="w-5 h-5" />
@@ -91,33 +94,40 @@ const Topbar: React.FC<TopbarProps> = ({ className }) => {
           {/* Language Switch */}
           <Button
             variant="ghost"
-            size="sm"
+            size="icon"
             onClick={handleLanguageToggle}
-            className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="rounded-lg backdrop-blur-md bg-white/40 dark:bg-gray-800/40 hover:bg-white/60 dark:hover:bg-gray-700/60 transition-colors"
           >
             <Globe className="w-4 h-4" />
-            <span className="text-sm font-medium hidden sm:inline">
-              {language.toUpperCase()}
-            </span>
           </Button>
 
           {/* Theme Switch */}
           <Button
             variant="ghost"
-            size="sm"
+            size="icon"
             onClick={toggleTheme}
-            className="hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="rounded-lg backdrop-blur-md bg-white/40 dark:bg-gray-800/40 hover:bg-white/60 dark:hover:bg-gray-700/60 transition-colors"
           >
             {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+          </Button>
+
+          {/* Notifications */}
+          <Button
+            variant="ghost"
+            size="icon"
+            className="rounded-lg backdrop-blur-md bg-white/40 dark:bg-gray-800/40 hover:bg-white/60 dark:hover:bg-gray-700/60 transition-colors"
+            aria-label="Notifications"
+          >
+            <Bell className="w-4 h-4" />
           </Button>
 
           {/* User Menu */}
           {isAuthenticated && user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  className="flex items-center gap-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg p-2"
+                <Button
+                  variant="ghost"
+                  className="flex items-center gap-2 rounded-lg px-2 py-1 backdrop-blur-md bg-white/40 dark:bg-gray-800/40 hover:bg-white/60 dark:hover:bg-gray-700/60 transition-colors"
                 >
                   <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
                     <User className="w-4 h-4 text-white" />
