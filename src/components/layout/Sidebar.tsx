@@ -1,3 +1,4 @@
+
 // Sidebar.tsx
 import React from 'react';
 import { motion, Variants } from 'framer-motion';
@@ -8,7 +9,7 @@ import { useLoadingStore } from '@/stores/useLoadingStore';
 import { cn } from '@/lib/utils';
 import {
   LayoutDashboard, Calendar, Activity, Users, Shield, BarChart3,
-  Settings, X, Waves, MapPin, CreditCard
+  Settings, X, Waves, MapPin, CreditCard, User, UserCheck
 } from 'lucide-react';
 import AppLogo from '@/components/ui/AppLogo';
 
@@ -29,6 +30,8 @@ const Sidebar = () => {
     },
     { icon: Users, label: t('clients'), href: '/clients' },
     { icon: Users, label: t('users'), href: '/users' },
+    { icon: User, label: 'اللاعبين', href: '/players' },
+    { icon: UserCheck, label: 'المدربين', href: '/coaches' },
     { icon: CreditCard, label: t('payments'), href: '/payments' },
     { icon: Shield, label: t('roles'), href: '/roles' },
     { icon: BarChart3, label: t('reports'), href: '/reports' },
@@ -59,7 +62,7 @@ const Sidebar = () => {
         variants={sidebarVariants}
         animate={sidebarOpen ? "open" : "closed"}
         className={cn(
-          'fixed inset-y-0 flex w-64 flex-col bg-sidebar text-sidebar-foreground shadow-md transition-transform duration-300 lg:sticky lg:left-0 lg:top-0 lg:z-auto lg:translate-x-0',
+          'fixed inset-y-0 flex w-64 flex-col sidebar-gradient text-sidebar-foreground shadow-md transition-transform duration-300 lg:sticky lg:left-0 lg:top-0 lg:z-auto lg:translate-x-0 dark:neon-shadow',
           language === 'ar' ? 'right-0' : 'left-0'
         )}
       >
@@ -85,7 +88,7 @@ const Sidebar = () => {
                       )
                     }
                   >
-                    <Icon className="w-5 h-5" />
+                    <Icon className="w-5 h-5 dark:text-fuchsia-400" />
                     <span>{item.label}</span>
                   </NavLink>
                   {item.subItems && (
@@ -103,7 +106,7 @@ const Sidebar = () => {
                             )
                           }
                         >
-                          <sub.icon className="w-4 h-4" />
+                          <sub.icon className="w-4 h-4 dark:text-fuchsia-400" />
                           {sub.label}
                         </NavLink>
                       ))}
