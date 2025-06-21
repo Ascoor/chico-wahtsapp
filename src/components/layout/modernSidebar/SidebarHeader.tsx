@@ -13,27 +13,20 @@ export function SidebarHeader() {
   return (
     <div
       className={cn(
-        'flex items-center gap-3 p-4 border-b border-sidebar-border bg-gradient-primary',
+        'flex items-center gap-3 p-4 border-b border-sidebar-border bg-gradient-primary dark:bg-gradient-primary-dark',
         !sidebarOpen && 'lg:p-2 lg:justify-center'
       )}
     >
       {sidebarOpen ? (
         <div className="flex items-center gap-2">
-          <AppLogo className="h-8" />
-          <AppLogo variant="secondary" className="h-8" />
+          <AppLogo variant="secondary" className="h-16" />
+          <AppLogo className="h-14" />
         </div>
       ) : (
-        <AppLogo variant="secondary" className="h-8" />
+        <AppLogo variant="secondary" className="h-12" />
       )}
 
-      {sidebarOpen && (
-        <div className={cn('min-w-0', isRTL ? 'text-right' : 'text-left')}>
-          <h1 className="text-white font-bold text-lg leading-tight truncate">
-            {t('app.name')}
-          </h1>
-          <p className="text-white/80 text-xs truncate">{t('app.tagline')}</p>
-        </div>
-      )}
+ 
     </div>
   );
 }

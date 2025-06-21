@@ -1,18 +1,19 @@
 
-{
+{ 
   "navigation": {
-    "home": "Home",
+    "main": "Main",
+    "activities": "Activities",
+    "management": "Management",
+    "system": "System",
     "dashboard": "Dashboard",
     "bookings": "Bookings",
-    "swimming": "Swimming",
-    "fields": "Sports Fields",
-    "clients": "Clients",
-    "users": "Users",
-    "roles": "User Roles",
-    "payments": "Payments",
-    "profile": "Profile",
-    "settings": "Settings"
-  },
+    "clients": "Clients", 
+      "users": "Users",
+      "roles": "User Roles",
+      "payments": "Payments",
+      "profile": "Profile",
+      "settings": "Settings"
+    },
   "common": {
     "login": "Login",
     "logout": "Logout",

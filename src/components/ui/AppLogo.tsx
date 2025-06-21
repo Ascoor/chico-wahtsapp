@@ -20,7 +20,7 @@ const AppLogo = ({ variant = 'primary', className = '' }: Props) => {
     return <img src={src} alt="Sports Hub" className={cn('h-8 w-auto', className)} />;
   }
 
-  return <img src="/logo-secondary.svg" alt="Sports Hub Mark" className={cn('h-8 w-auto', className)} />;
+  return <img src="/logo-patrens.png" alt="Sports Hub Mark" className={cn('h-8 w-auto', className)} />;
 };
 
 export default AppLogo;

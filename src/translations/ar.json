@@ -1,18 +1,22 @@
 
 {
   "navigation": {
-    "home": "الرئيسية",
+    "main": "الرئيسية",
+    "activities": "الأنشطة",
+    "management": "الإدارة",
+    "system": "النظام",
     "dashboard": "لوحة التحكم",
     "bookings": "الحجوزات",
-    "swimming": "السباحة",
-    "fields": "الملاعب الرياضية",
     "clients": "العملاء",
-    "users": "المستخدمون",
+        "users": "المستخدمون",
     "roles": "أدوار المستخدمين",
     "payments": "المدفوعات",
     "profile": "الملف الشخصي",
     "settings": "الإعدادات"
+ 
   },
+
+
   "common": {
     "login": "تسجيل الدخول",
     "logout": "تسجيل الخروج",

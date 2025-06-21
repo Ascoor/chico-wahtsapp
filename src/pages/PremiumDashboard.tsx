@@ -56,7 +56,7 @@ const revenueData = [
   { month: 'Jun', revenue: 26150, target: 25000 },
 ];
 
-export default function AdminDashboard() {
+export default function PremiumDashboard() {
   const { t } = useTranslation();
   const [timeRange, setTimeRange] = useState('6months');
 
