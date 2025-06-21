@@ -99,12 +99,18 @@ export default {
                                         DEFAULT: 'hsl(var(--sidebar-background))',
                                         foreground: 'hsl(var(--sidebar-foreground))',
                                         primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-                                }
+                                        'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+                                        accent: 'hsl(var(--sidebar-accent))',
+                                        'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+                                        border: 'hsl(var(--sidebar-border))',
+                                        ring: 'hsl(var(--sidebar-ring))'
+                                },
+                                'color-bg': 'hsl(var(--color-bg))',
+                                'color-surface': 'hsl(var(--color-surface))',
+                                'color-text': 'hsl(var(--color-text))',
+                                'color-muted': 'hsl(var(--color-muted))',
+                                'color-primary': 'hsl(var(--color-primary))',
+                                'color-accent': 'hsl(var(--color-accent))'
                         },
                         backgroundImage: {
                                 'gradient-primary': 'linear-gradient(to right, #1D4ED8, #9333EA)',
