@@ -9,6 +9,7 @@ import LoadingOverlay from "@/components/LoadingOverlay";
 import RouteChangeListener from "@/components/RouteChangeListener";
 import Layout from "./components/layout/Layout";
 import Landing from "./pages/Landing";
+import LoginPage from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
 import Dashboard from "./pages/Dashboard"; 
 import AdminDashboard from "./pages/admin/Dashboard";
@@ -39,6 +40,7 @@ const App = () => (
               {/* Public Routes */}
               <Route path="/" element={<Landing />} />
               <Route path="/landing" element={<Landing />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/reset-password" element={<ResetPassword />} />
                
               {/* Admin Routes */}
