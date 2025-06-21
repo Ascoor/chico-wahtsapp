@@ -62,7 +62,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         
         {/* Page Content */}
         <main className={cn('flex-1 overflow-auto bg-gradient-to-br from-background to-muted/20', paddingClasses)}>
-          <div className="container mx-auto p-6 max-w-7xl">
+          <div className="mx-auto p-6 pb-12 max-w-screen-2xl">
             {children}
           </div>
         </main>

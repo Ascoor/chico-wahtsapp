@@ -120,7 +120,7 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50 dark:from-slate-950 dark:via-blue-950/30 dark:to-indigo-950">
-      <div className="container mx-auto p-6 space-y-8">
+      <div className="container mx-auto p-6 space-y-8 pb-16">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
