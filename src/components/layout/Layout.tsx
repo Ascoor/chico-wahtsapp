@@ -13,6 +13,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = language;
+    document.documentElement.style.setProperty(
+      '--gradient-direction',
+      language === 'ar' ? 'to left' : 'to right'
+    );
     document.documentElement.classList.add('antialiased');
   }, [theme, language]);
 
