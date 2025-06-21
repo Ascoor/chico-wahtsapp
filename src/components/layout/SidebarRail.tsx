@@ -6,6 +6,7 @@ import { cn } from '@/lib/utils';
 import { useAppStore } from '@/stores/useAppStore';
 import { SidebarNavGroup } from './modernSidebar/SidebarNavGroup';
 import { sidebarConfig } from './modernSidebar/sidebarConfig';
+import { SidebarHeader } from './modernSidebar/SidebarHeader';
 
 /**
  * SidebarRail handles responsive sidebar behaviour.
@@ -52,6 +53,7 @@ export const SidebarRail: React.FC = () => {
       )}
 
       <motion.aside ref={ref} className={sidebarClasses} role="navigation" aria-label={t('navigation.main')}>
+        <SidebarHeader />
         <div className="flex-1 overflow-y-auto px-3 py-4">
           {sidebarConfig.groups.map((group) => (
             <SidebarNavGroup

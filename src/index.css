@@ -142,7 +142,7 @@
   }
 
   body {
-    @apply bg-background text-foreground antialiased lg:bg-[hsl(var(--background-color-desktop))];
+    @apply bg-background text-foreground antialiased transition-colors lg:bg-[hsl(var(--background-color-desktop))];
     font-feature-settings: "rlig" 1, "calt" 1;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
