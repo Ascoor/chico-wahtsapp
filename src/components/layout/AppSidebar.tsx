@@ -17,6 +17,13 @@ import {
 import { cn } from '@/lib/utils';
 import { useAppStore } from '@/stores/useAppStore';
 
+interface NavigationItem {
+  title: string;
+  url: string;
+  icon: React.ElementType;
+  gradient: string;
+}
+
 const navigationItems = [
   {
     title: 'الرئيسية',
@@ -82,7 +89,7 @@ export function AppSidebar() {
   const isCollapsed = !sidebarOpen;
   const isRTL = language === 'ar';
 
-  const NavItem = ({ item }: { item: any }) => (
+  const NavItem = ({ item }: { item: NavigationItem }) => (
     <div className="mb-2">
       <NavLink
         to={item.url}
