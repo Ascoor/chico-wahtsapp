@@ -28,15 +28,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
   const isRTL = language === 'ar';
 
-  const marginClasses = cn(
-    'transition-all duration-200 ease-in-out',
+  const offsetClasses = cn(
+    'transition-[padding] duration-200 ease-in-out',
     sidebarOpen
       ? isRTL
-        ? 'lg:mr-72'
-        : 'lg:ml-72'
+        ? 'lg:pr-72'
+        : 'lg:pl-72'
       : isRTL
-        ? 'lg:mr-16'
-        : 'lg:ml-16'
+        ? 'lg:pr-16'
+        : 'lg:pl-16'
   );
 
   return (
@@ -50,14 +50,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <SidebarRail />
 
       {/* Main Content Area */}
-      <div
-        className="flex flex-col flex-1 min-h-screen transition-all duration-200 ease-in-out"
-      >
+      <div className="flex flex-col flex-1 min-h-screen relative">
         {/* Topbar */}
-        <Topbar className={marginClasses} />
-        
+        <Topbar className={cn('fixed top-0 inset-x-0 z-40', offsetClasses)} />
+
         {/* Page Content */}
-        <main className={cn('flex-1 overflow-auto bg-gradient-to-br from-background to-muted/20', marginClasses)}>
+        <main className={cn('flex-1 pt-16 overflow-auto bg-gradient-to-br from-background to-muted/20', offsetClasses)}>
           <div className="container mx-auto p-6 max-w-7xl">
             {children}
           </div>

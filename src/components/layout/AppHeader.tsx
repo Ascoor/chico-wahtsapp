@@ -35,8 +35,7 @@ import { useLoadingStore } from '@/stores/useLoadingStore';
 
 export function AppHeader() {
   const { theme, setTheme } = useTheme();
-  const { toggleSidebar } = useAppStore();
-  const { language, setLanguage, user, logout } = useAppStore();
+  const { toggleSidebar, sidebarOpen, language, setLanguage, user, logout } = useAppStore();
   const navigate = useNavigate();
   const { toast } = useToast();
   const showLoading = useLoadingStore((state) => state.showLoading);
@@ -44,6 +43,14 @@ export function AppHeader() {
   const [isStylePanelOpen, setIsStylePanelOpen] = useState(false);
 
   const isRTL = language === 'ar';
+
+  const headerPadding = sidebarOpen
+    ? isRTL
+      ? 'lg:pr-72'
+      : 'lg:pl-72'
+    : isRTL
+      ? 'lg:pr-16'
+      : 'lg:pl-16';
 
   const quickActions = [
     {
@@ -86,7 +93,9 @@ export function AppHeader() {
 
   return (
     <>
-      <header className={`h-16 border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md sticky top-0 z-40 ${isRTL ? 'border-l' : 'border-r'}`}>
+      <header
+        className={`fixed top-0 inset-x-0 h-16 z-50 border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md ${headerPadding} ${isRTL ? 'border-l' : 'border-r'}`}
+      >
         <div className={`flex items-center justify-between h-full px-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Left section */}
           <div className={`flex items-center space-x-3 ${isRTL ? 'space-x-reverse' : ''}`}>
@@ -187,7 +196,7 @@ export function AppHeader() {
                   </div>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+              <DropdownMenuContent align="end" className="z-50 w-56 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
                 <DropdownMenuItem className="flex items-center space-x-2 space-x-reverse">
                   <User className="h-4 w-4" />
                   <span>الملف الشخصي</span>
