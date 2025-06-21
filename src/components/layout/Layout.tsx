@@ -7,7 +7,7 @@ import AuthModal from '@/components/auth/AuthModal';
 import { cn } from '@/lib/utils';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { language, theme, sidebarOpen } = useAppStore();
+  const { language, theme, sidebarOpen, setSidebarOpen } = useAppStore();
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
@@ -16,17 +16,27 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     document.documentElement.classList.add('antialiased');
   }, [theme, language]);
 
+  // set initial sidebar state based on screen width
+  useEffect(() => {
+    const width = window.innerWidth;
+    if (width >= 1536) {
+      setSidebarOpen(true);
+    } else {
+      setSidebarOpen(false);
+    }
+  }, [setSidebarOpen]);
+
   const isRTL = language === 'ar';
 
   const marginClasses = cn(
     'transition-all duration-200 ease-in-out',
     sidebarOpen
       ? isRTL
-        ? '2xl:mr-72'
-        : '2xl:ml-72'
+        ? 'lg:mr-72'
+        : 'lg:ml-72'
       : isRTL
-        ? 'lg:mr-16 2xl:mr-16'
-        : 'lg:ml-16 2xl:ml-16'
+        ? 'lg:mr-16'
+        : 'lg:ml-16'
   );
 
   return (
@@ -41,10 +51,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
       {/* Main Content Area */}
       <div
-        className={cn(
-          'flex flex-col flex-1 min-h-screen transition-all duration-200 ease-in-out',
-          marginClasses
-        )}
+        className="flex flex-col flex-1 min-h-screen transition-all duration-200 ease-in-out"
       >
         {/* Topbar */}
         <Topbar className={marginClasses} />

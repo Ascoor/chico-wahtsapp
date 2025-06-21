@@ -81,6 +81,7 @@ const Topbar: React.FC<TopbarProps> = ({ className }) => {
             size="sm"
             onClick={toggleSidebar}
             className={cn(language === 'ar' ? 'ml-auto' : 'mr-auto')}
+            aria-label="Toggle sidebar"
           >
             <Menu className="w-5 h-5" />
           </Button>

@@ -18,6 +18,10 @@ export default {
 			}
 		},
                 extend: {
+                        spacing: {
+                                'sidebar-mini': '4rem',
+                                'sidebar-full': '18rem',
+                        },
                         width: {
                                 'sidebar-mini': '4rem',
                                 'sidebar-full': '18rem',
