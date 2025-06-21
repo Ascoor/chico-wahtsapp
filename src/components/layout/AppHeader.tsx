@@ -89,7 +89,7 @@ export function AppHeader() {
       <header className={`h-16 border-b border-gray-200 dark:border-gray-800 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md sticky top-0 z-40 ${isRTL ? 'border-l' : 'border-r'}`}>
         <div className={`flex items-center justify-between h-full px-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
           {/* Left section */}
-          <div className={`flex items-center space-x-3 ${isRTL ? 'space-x-reverse' : ''}`}>
+          <div className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
             <Button
               variant="ghost"
               size="sm"
@@ -98,6 +98,12 @@ export function AppHeader() {
             >
               <Menu className="h-5 w-5" />
             </Button>
+
+            {/* Logos */}
+            <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              <img src="/logo-day.png" alt="Logo" className="h-8 w-auto" />
+              <img src="/logo-patrens.png" alt="Mark" className="h-8 w-auto" />
+            </div>
             
             <div className={`hidden md:flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''}`}>
               {quickActions.map((action, index) => (
@@ -128,13 +134,13 @@ export function AppHeader() {
           </div>
 
           {/* Right section */}
-          <div className={`flex items-center space-x-2 ${isRTL ? 'space-x-reverse' : ''}`}>
+          <div className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
             {/* Style Control Panel */}
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsStylePanelOpen(true)}
-              className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
+              className="w-10 h-10 p-2 rounded-full backdrop-blur-sm bg-white/40 dark:bg-gray-700/40 hover:bg-white/60 dark:hover:bg-gray-600/60 transition-colors"
             >
               <Palette className="h-5 w-5 text-gray-600 dark:text-gray-400" />
             </Button>
@@ -144,13 +150,13 @@ export function AppHeader() {
               variant="ghost"
               size="icon"
               onClick={toggleLanguage}
-              className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
+              className="w-10 h-10 p-2 rounded-full backdrop-blur-sm bg-white/40 dark:bg-gray-700/40 hover:bg-white/60 dark:hover:bg-gray-600/60 transition-colors"
             >
               <Languages className="h-5 w-5 text-gray-600 dark:text-gray-400" />
             </Button>
 
             {/* Notifications */}
-            <Button variant="ghost" size="icon" className="relative hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full">
+            <Button variant="ghost" size="icon" className="relative w-10 h-10 p-2 rounded-full backdrop-blur-sm bg-white/40 dark:bg-gray-700/40 hover:bg-white/60 dark:hover:bg-gray-600/60 transition-colors">
               <Bell className="h-5 w-5 text-gray-600 dark:text-gray-400" />
               <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 bg-red-500 text-white text-xs">
                 3
@@ -162,7 +168,7 @@ export function AppHeader() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full"
+              className="w-10 h-10 p-2 rounded-full backdrop-blur-sm bg-white/40 dark:bg-gray-700/40 hover:bg-white/60 dark:hover:bg-gray-600/60 transition-colors"
             >
               {theme === 'dark' ? (
                 <Sun className="h-5 w-5 text-gray-600 dark:text-gray-400" />
@@ -174,7 +180,7 @@ export function AppHeader() {
             {/* User menu */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="flex items-center space-x-2 space-x-reverse hover:bg-background-desktop rounded-xl p-2">
+                <Button variant="ghost" className="flex items-center gap-2 p-2 w-10 h-10 rounded-full backdrop-blur-sm bg-white/40 dark:bg-gray-700/40 hover:bg-white/60 dark:hover:bg-gray-600/60 transition-colors">
                   <div className="w-8 h-8 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center">
                     <User className="h-4 w-4 text-white" />
                   </div>

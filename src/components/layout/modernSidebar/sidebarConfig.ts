@@ -4,9 +4,9 @@ import {
   Calendar,
   Users,
   Waves,
-  Target,
-  CreditCard,
-  BarChart3,
+  MapPin,
+  Wallet,
+  LineChart,
   Settings,
   Shield,
   UserCheck
@@ -16,7 +16,7 @@ import { SidebarConfig } from './types';
 export const sidebarConfig: SidebarConfig = {
   groups: [
     {
-      label: 'navigation.main',
+      label: 'sidebar.general',
       items: [
         {
           href: '/',
@@ -32,7 +32,7 @@ export const sidebarConfig: SidebarConfig = {
       ]
     },
     {
-      label: 'navigation.activities',
+      label: 'sidebar.activities',
       items: [
         {
           href: '/activities/swimming',
@@ -42,12 +42,12 @@ export const sidebarConfig: SidebarConfig = {
         {
           href: '/activities/fields',
           label: 'navigation.fields',
-          icon: Target
+          icon: MapPin
         }
       ]
     },
     {
-      label: 'navigation.management',
+      label: 'sidebar.management',
       items: [
         {
           href: '/clients',
@@ -57,17 +57,17 @@ export const sidebarConfig: SidebarConfig = {
         {
           href: '/payments',
           label: 'navigation.payments',
-          icon: CreditCard
+          icon: Wallet
         },
         {
           href: '/reports',
           label: 'navigation.reports',
-          icon: BarChart3
+          icon: LineChart
         }
       ]
     },
     {
-      label: 'navigation.system',
+      label: 'sidebar.system',
       items: [
         {
           href: '/users',

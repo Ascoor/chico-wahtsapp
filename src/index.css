@@ -65,6 +65,17 @@
     --surface-50: #f8fafc;
     --surface-100: #f1f5f9;
     --surface-200: #e2e8f0;
+
+    /* Semantic aliases */
+    --color-bg: var(--background-color);
+    --color-surface: var(--surface);
+    --color-text: var(--text-color);
+    --color-primary: var(--primary-color);
+    --color-accent: var(--accent-color);
+    --color-muted: var(--muted);
+
+    /* backward compatibility */
+    --text-color: var(--color-text);
   }
 
   .dark {
@@ -114,6 +125,14 @@
     --surface-50: #1e293b;
     --surface-100: #334155;
     --surface-200: #475569;
+
+    --color-bg: var(--background-color);
+    --color-surface: var(--surface);
+    --color-text: var(--text-color);
+    --color-primary: var(--primary-color);
+    --color-accent: var(--accent-color);
+    --color-muted: var(--muted);
+    --text-color: var(--color-text);
   }
 }
 
@@ -126,6 +145,7 @@
   html {
     scroll-behavior: smooth;
     font-feature-settings: "cv03", "cv04", "cv11";
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   body {

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useAppStore } from '@/stores/useAppStore';
 import SidebarRail from './SidebarRail';
-import Topbar from './Topbar';
+import { AppHeader } from './AppHeader';
 import AuthModal from '@/components/auth/AuthModal';
 import { cn } from '@/lib/utils';
 
@@ -51,8 +51,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         'flex flex-col flex-1 min-h-screen transition-all duration-200 ease-in-out',
         marginClasses
       )}>
-        {/* Topbar */}
-        <Topbar />
+        {/* Header */}
+        <AppHeader />
 
         {/* محتوى الصفحة */}
         <main className="flex-1 overflow-auto bg-gradient-to-br from-background to-muted/20 transition-all">

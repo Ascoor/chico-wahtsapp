@@ -65,7 +65,12 @@ export default {
                                 background: 'hsl(var(--background))',
                                 'background-desktop': 'hsl(var(--background-color-desktop))',
                                 foreground: 'hsl(var(--foreground))',
-                                text: 'hsl(var(--text-color))',
+                                text: 'hsl(var(--color-text))',
+                                bg: 'hsl(var(--color-bg))',
+                                surface: 'hsl(var(--color-surface))',
+                                'primary-brand': 'hsl(var(--color-primary))',
+                                'accent-brand': 'hsl(var(--color-accent))',
+                                'brand-muted': 'hsl(var(--color-muted))',
                                 primary: {
                                         DEFAULT: 'hsl(var(--primary))',
                                         foreground: 'hsl(var(--primary-foreground))'
