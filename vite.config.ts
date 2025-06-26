@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
   },
 
   // تحقق من إذا كانت البيئة هي GitHub Pages (غالبًا ما يكون `production`)
-  base: process.env.NODE_ENV === 'production' ? '/chico-wahtsapp/' : '/',
+  base: process.env.NODE_ENV === 'gh-pages' ? '/chico-wahtsapp/' : '/',
 
   plugins: [
     react(),
