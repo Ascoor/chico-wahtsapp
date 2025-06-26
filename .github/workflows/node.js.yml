@@ -3,37 +3,31 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # نشر التغييرات عند الدفع إلى الفرع الرئيسي
+      - master 
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    steps:
-    # خطوة تحميل الشيفرة المصدرية
+    steps: 
     - uses: actions/checkout@v2
-
-    # خطوة إعداد Node.js
+ 
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '18'
-
-    # خطوة تثبيت التبعيات باستخدام Yarn
+ 
     - name: Install dependencies
       run: yarn install --frozen-lockfile
-
-    # خطوة بناء المشروع
+ 
     - name: Build the project
       run: yarn build --if-present
-
-    # خطوة تشغيل الاختبارات (اختياري إذا كان لديك اختبارات)
+ 
     - name: Run tests
       run: yarn test
-
-    # خطوة نشر الملفات المبنية على GitHub Pages
+ 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4.1.0
       with:
-        branch: gh-pages  # الفرع الذي سيتم نشره عليه
-        folder: dist      # المجلد الذي يحتوي على الملفات المبنية
+        branch: gh-pages   
+        folder: dist      
