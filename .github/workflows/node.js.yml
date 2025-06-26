@@ -17,7 +17,8 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
-      run: yarn install --frozen-lockfile
+    - run: yarn install   
+
 
     - name: Build the project
       run: yarn build --if-present
