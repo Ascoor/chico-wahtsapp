@@ -1,6 +1,22 @@
 {
   "name": "vite_react_shadcn_ts",
   "private": true,
+  "description": "A Vite + React + Shadcn UI + TypeScript template",
+  "author": "Chico",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ascoor/chico-wahtsapp.git"
+  },
+  "keywords": [
+    "vite",
+    "react",
+    "shadcn",
+    "typescript",
+    "template",
+    "starter",
+    "boilerplate"
+  ],
   "version": "0.0.0",
   "type": "module",
   "scripts": {
