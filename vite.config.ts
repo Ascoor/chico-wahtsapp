@@ -1,4 +1,3 @@
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -10,10 +9,10 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 7000,
   },
+  base: '/chico-wahtsapp/', // Use repository name as base for GitHub Pages
   plugins: [
     react(),
-    mode === 'development' &&
-    componentTagger(),
+    mode === 'development' && componentTagger(),
   ].filter(Boolean),
   resolve: {
     alias: {
