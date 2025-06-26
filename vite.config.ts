@@ -9,8 +9,8 @@ export default defineConfig(({ mode }) => ({
     port: 7000, // The port for the local development server
   },
 
-  // Configure base path, especially for GitHub Pages (this must match the repository name)
-  base: process.env.NODE_ENV === 'production' ? '/chico-wahtsapp/' : '/',
+  // Set base path depending on build mode so GitHub Pages serves assets correctly
+  base: mode === 'gh-pages' ? '/chico-wahtsapp/' : '/',
 
   plugins: [
     react(), // Vite plugin to handle React with SWC (a faster alternative to Babel)
