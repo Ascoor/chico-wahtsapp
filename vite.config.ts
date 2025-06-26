@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
   },
 
   // Set base path depending on build mode so GitHub Pages serves assets correctly
-  base: mode === 'gh-pages' ? '/chico-wahtsapp/' : '/',
+  base: process.env.NODE_ENV === 'production' ? '/chico-wahtsapp/' : '/',
 
   plugins: [
     react(), // Vite plugin to handle React with SWC (a faster alternative to Babel)
