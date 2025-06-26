@@ -9,8 +9,8 @@ export default defineConfig(({ mode }) => ({
     port: 7000,
   },
 
-  // تحقق من إذا كانت البيئة هي GitHub Pages (غالبًا ما يكون `production`)
-  base: process.env.NODE_ENV === 'gh-pages' ? '/chico-wahtsapp/' : '/',
+  // Set base path depending on build mode so GitHub Pages serves assets correctly
+  base: mode === 'gh-pages' ? '/chico-wahtsapp/' : '/',
 
   plugins: [
     react(),
