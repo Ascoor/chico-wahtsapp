@@ -28,3 +28,4 @@ jobs:
       with:
         branch: gh-pages  # نشر الملفات على الفرع gh-pages
         folder: dist      # المجلد الذي يحتوي على الملفات المبنية
+        token: ${{ secrets.GITHUB_TOKEN }}  # استخدام GITHUB_TOKEN للمصادقة
