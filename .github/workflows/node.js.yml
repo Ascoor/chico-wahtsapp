@@ -3,28 +3,28 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master  # تأكد من أنك تستخدم الفرع الصحيح هنا
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2  # خطوة سحب الشيفرة المصدرية من GitHub
+
     - name: Set up Node.js
       uses: actions/setup-node@v2
       with:
         node-version: '18'
 
     - name: Install dependencies
-    - run: yarn install   
-
+      run: yarn install  # تثبيت التبعيات باستخدام yarn
 
     - name: Build the project
-      run: yarn build --if-present
+      run: yarn build --if-present  # بناء المشروع
 
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4  
+      uses: JamesIves/github-pages-deploy-action@v4  # نشر الموقع باستخدام GitHub Pages Deploy Action
       with:
-        branch: gh-pages 
-        folder: dist     
+        branch: gh-pages  # نشر الملفات على الفرع gh-pages
+        folder: dist      # المجلد الذي يحتوي على الملفات المبنية
