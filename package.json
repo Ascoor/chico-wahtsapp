@@ -1,13 +1,13 @@
 {
   "name": "vite_react_shadcn_ts",
   "private": true,
-  "description": "A Vite + React + Shadcn UI + TypeScript template",
-  "author": "Chico",
   "license": "MIT",
+  "version": "0.0.0",
+  "homepage": "https://ascoor.github.io/chico-wahtsapp/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Ascoor/chico-wahtsapp.git"
-  },
+  },  
   "keywords": [
     "vite",
     "react",
@@ -16,11 +16,10 @@
     "template",
     "starter",
     "boilerplate"
-  ],
-  "version": "0.0.0",
+  ], 
   "type": "module",
   "scripts": {
- "build-gh-pages": "vite build --mode gh-pages",
+    "build-gh-pages": "vite build --mode gh-pages",
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
@@ -77,6 +76,7 @@
     "lucide-react": "^0.462.0",
     "mysql2": "^3.14.1",
     "next-themes": "^0.3.0",
+    "node-stdlib-browser": "^1.2.0",
     "react": "^18.3.1",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18.3.1",
@@ -89,6 +89,7 @@
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^0.9.3",
+    "vite-plugin-node-stdlib-browser": "^0.2.1",
     "zod": "^3.23.8",
     "zustand": "^5.0.5"
   },
@@ -109,7 +110,6 @@
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",
-    "vite": "^5.4.1"
+    "vite": "^7.0.0"
   }
 }
-  
