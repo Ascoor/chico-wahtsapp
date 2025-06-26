@@ -32,7 +32,8 @@
     "db:seed": "node scripts/db.js seed",
     "db:reset": "node scripts/db.js reset",
     "db:tables": "node scripts/db.js tables",
-    "db:query": "node scripts/db.js query"
+    "db:query": "node scripts/db.js query",
+    "generate:lazy-imports": "node scripts/generateLazyImports.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
