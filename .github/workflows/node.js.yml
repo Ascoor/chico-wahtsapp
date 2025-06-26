@@ -3,27 +3,30 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master  # تأكد من أن فرع "main" هو الفرع الصحيح
+      - master # الفرع الذي سيتم مراقبته للنشر
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Install dependencies
-      run: yarn install
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20 # اختر الإصدار المناسب لمشروعك
+          cache: 'yarn'
 
-    - name: Build the project
-      run: yarn build
+      - name: Install dependencies
+        run: yarn install
 
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        branch: gh-pages   # استخدم الفرع gh-pages لنشر الملفات
-        folder: dist        # نشر الملفات المبنية من مجلد dist
+      - name: Build project
+        run: yarn build-gh-pages
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
