@@ -20,6 +20,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+ "build-gh-pages": "vite build --mode gh-pages",
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
