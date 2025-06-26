@@ -21,7 +21,7 @@ jobs:
       run: yarn install  # تثبيت التبعيات باستخدام yarn
 
     - name: Build the project
-      run: yarn build --if-present  # بناء المشروع
+      run: yarn build  # بناء المشروع بدون --if-present
 
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@v4  # نشر الموقع باستخدام GitHub Pages Deploy Action
