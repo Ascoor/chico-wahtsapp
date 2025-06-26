@@ -20,7 +20,7 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'  # Cache npm dependencies
-    - run: npm ci  # Use npm to install dependencies from package-lock.json
-    - run: npm run build --if-present  # Build the project using npm
-    - run: npm test  # Run tests using npm
+        cache: 'yarn'  # Cache Yarn dependencies
+    - run: yarn install --frozen-lockfile  # Use Yarn to install dependencies
+    - run: yarn build --if-present  # Build the project with Yarn
+    - run: yarn test  # Run tests with Yarn
