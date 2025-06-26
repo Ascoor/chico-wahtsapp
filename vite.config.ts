@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 7000,
   },
-  base: '/chico-wahtsapp/',  // يجب أن يكون هنا اسم المستودع الذي قمت باستضافته على GitHub Pages
+  base: mode === 'gh-pages' ? '/chico-wahtsapp/',  // يجب أن يكون هنا اسم المستودع الذي قمت باستضافته على GitHub Pages
   plugins: [
     react(),
     mode === 'development' && componentTagger(),
