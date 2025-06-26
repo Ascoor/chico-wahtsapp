@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # تأكد من أنك تستخدم الفرع الصحيح
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '18'
+        cache: 'yarn'  
+    - run: yarn install --frozen-lockfile  # Use Yarn to install dependencies
+    - run: yarn build --if-present  # Build the project with Yarn
+    - run: yarn test  # Run tests with Yarn
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@v4.1.0
+      with:
+        branch: gh-pages  # الفرع الذي سيتم نشره عليه
+        folder: dist      # المجلد الذي يحتوي على الملفات المبنية
+
+ 

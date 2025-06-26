@@ -30,7 +30,6 @@ import FootballFields from "./pages/football/Fields";
 import CollectionsPage from "./pages/finance/Collections";
 import PricingPage from "./pages/finance/Pricing";
 import NotFound from "./pages/NotFound";
-import { LanguageProvider } from '@/context/LanguageContext';
 
 const queryClient = new QueryClient();
 
@@ -41,9 +40,8 @@ const App = () => (
       <Sonner />
       <LoadingOverlay />
       <AuthProvider>
-        <LanguageProvider>
-          <BrowserRouter>
-            <RouteChangeListener />
+        <BrowserRouter>
+          <RouteChangeListener />
             <Routes>
               {/* Public Routes */}
               <Route path="/" element={<Landing />} />
@@ -216,7 +214,6 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
-        </LanguageProvider>
       </AuthProvider>
     </TooltipProvider>
   </QueryClientProvider>
