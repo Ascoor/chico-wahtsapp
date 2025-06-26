@@ -8,17 +8,21 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 7000,
   },
- 
-    base: mode === 'gh-pages' ? '/chico-wahtsapp/' : '/',
+
+  // تحقق من إذا كانت البيئة هي GitHub Pages (غالبًا ما يكون `production`)
+  base: process.env.NODE_ENV === 'production' ? '/chico-wahtsapp/' : '/',
+
   plugins: [
     react(),
     mode === 'development' && componentTagger(),
   ].filter(Boolean),
+
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
+
   build: {
     rollupOptions: {
       external: [
@@ -27,7 +31,7 @@ export default defineConfig(({ mode }) => ({
         'https',
         'url',
         'zlib',
-      ]
+      ],
     },
   },
 }));
