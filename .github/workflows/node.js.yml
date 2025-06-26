@@ -24,8 +24,9 @@ jobs:
       run: yarn build  # بناء المشروع بدون --if-present
 
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@v4  # نشر الموقع باستخدام GitHub Pages Deploy Action
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        branch: gh-pages  # نشر الملفات على الفرع gh-pages
+        branch: gh-pages  # الفرع الذي سيتم نشره عليه
         folder: dist      # المجلد الذي يحتوي على الملفات المبنية
-        token: ${{ secrets.GITHUB_TOKEN }}  # استخدام GITHUB_TOKEN للمصادقة
+        token: ${{ secrets.GITHUB_TOKEN }}  # استخدم `GITHUB_TOKEN` المقدم من GitHub Actions
+
