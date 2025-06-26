@@ -1,3 +1,10 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import path from 'path'; 
+
+// إذا كنت بحاجة إلى استيراد componentTagger، تأكد من إضافته هنا
+import { componentTagger } from 'lovable-tagger';
+
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
