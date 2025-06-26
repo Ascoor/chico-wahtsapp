@@ -161,6 +161,46 @@ const resources = {
       'dashboard.morning': 'Morning',
       'dashboard.afternoon': 'Afternoon',
       'dashboard.evening': 'Evening',
+
+      // Style Panel
+      'stylePanel.title': 'Style Control Panel',
+      'stylePanel.description': 'Customize the appearance and layout',
+      'stylePanel.theme': 'Theme',
+      'stylePanel.colors': 'Colors',
+      'stylePanel.sidebar': 'Sidebar',
+      'stylePanel.layout': 'Layout',
+      'stylePanel.themeMode': 'Theme Mode',
+      'stylePanel.themeModeDesc': 'Choose light, dark or system',
+      'stylePanel.light': 'Light',
+      'stylePanel.dark': 'Dark',
+      'stylePanel.system': 'System',
+      'stylePanel.colorScheme': 'Color Scheme',
+      'stylePanel.colorSchemeDesc': 'Select color palette',
+      'stylePanel.sidebarStyle': 'Sidebar Style',
+      'stylePanel.sidebarStyleDesc': 'Customize sidebar look',
+      'stylePanel.headerStyle': 'Header Style',
+      'stylePanel.headerStyleDesc': 'Customize header look',
+      'stylePanel.layoutOptions': 'Layout Options',
+      'stylePanel.compactMode': 'Compact Mode',
+      'stylePanel.compactModeDesc': 'Reduce spacing and padding',
+      'stylePanel.animations': 'Animations',
+      'stylePanel.animationsDesc': 'Enable smooth animations',
+      'stylePanel.blurEffects': 'Blur Effects',
+      'stylePanel.blurEffectsDesc': 'Enable backdrop blur effects',
+      'stylePanel.resetToDefault': 'Reset to Default',
+
+      // Football
+      'football.manageFields': 'Manage Fields',
+      'football.dummyContent': 'Placeholder content for fields.',
+
+      // Swimming
+      'swimming.managePool': 'Swimming Management',
+      'swimming.tagline': 'Olympic pool with professional training',
+      'swimming.sectionsTitle': 'Booking Sections',
+      'swimming.sectionsDesc': 'Manage all booking types and activities',
+      'swimming.tabs.private': 'Private Bookings',
+      'swimming.tabs.freetime': 'Free Time',
+      'swimming.tabs.schools': 'Schools',
     }
   },
   ar: {
@@ -322,6 +362,46 @@ const resources = {
       'dashboard.morning': 'صباحي',
       'dashboard.afternoon': 'مسائي',
       'dashboard.evening': 'ليلي',
+
+      // Style Panel
+      'stylePanel.title': 'لوحة تحكم الأسلوب',
+      'stylePanel.description': 'تخصيص المظهر والتخطيط',
+      'stylePanel.theme': 'المظهر',
+      'stylePanel.colors': 'الألوان',
+      'stylePanel.sidebar': 'الشريط الجانبي',
+      'stylePanel.layout': 'التخطيط',
+      'stylePanel.themeMode': 'وضع المظهر',
+      'stylePanel.themeModeDesc': 'اختر بين الفاتح أو الداكن أو النظام',
+      'stylePanel.light': 'فاتح',
+      'stylePanel.dark': 'داكن',
+      'stylePanel.system': 'النظام',
+      'stylePanel.colorScheme': 'نظام الألوان',
+      'stylePanel.colorSchemeDesc': 'اختر لوحة ألوان',
+      'stylePanel.sidebarStyle': 'نمط الشريط الجانبي',
+      'stylePanel.sidebarStyleDesc': 'تخصيص شكل الشريط الجانبي',
+      'stylePanel.headerStyle': 'نمط الرأس',
+      'stylePanel.headerStyleDesc': 'تخصيص شكل الرأس',
+      'stylePanel.layoutOptions': 'خيارات التخطيط',
+      'stylePanel.compactMode': 'الوضع المضغوط',
+      'stylePanel.compactModeDesc': 'تقليل المسافات والحشو',
+      'stylePanel.animations': 'الحركات',
+      'stylePanel.animationsDesc': 'تفعيل الحركات السلسة',
+      'stylePanel.blurEffects': 'تأثيرات الضبابية',
+      'stylePanel.blurEffectsDesc': 'تفعيل تأثيرات الضبابية',
+      'stylePanel.resetToDefault': 'إعادة للإفتراضي',
+
+      // Football
+      'football.manageFields': 'إدارة الملاعب',
+      'football.dummyContent': 'محتوى تجريبي للملاعب.',
+
+      // Swimming
+      'swimming.managePool': 'إدارة حمام السباحة',
+      'swimming.tagline': 'حمام أولمبي مع تدريب مهني',
+      'swimming.sectionsTitle': 'أقسام الحجوزات',
+      'swimming.sectionsDesc': 'إدارة جميع أنواع الحجوزات والأنشطة',
+      'swimming.tabs.private': 'حجوزات خاصة',
+      'swimming.tabs.freetime': 'الأوقات الحرة',
+      'swimming.tabs.schools': 'المدارس',
     }
   }
 };
