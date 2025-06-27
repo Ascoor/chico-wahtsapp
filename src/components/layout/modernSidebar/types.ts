@@ -9,7 +9,9 @@ export interface SidebarItem {
 }
 
 export interface SidebarGroup {
+  id: string;
   label: string;
+  icon?: LucideIcon;
   items: SidebarItem[];
 }
 
