@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { bookingsService, Booking } from '@/services/bookings';
+import { bookingsService, Booking } from '@/features/bookings/api/bookings';
 import { BookingModal } from './BookingModal';
 import { useToast } from '@/hooks/use-toast';
 
@@ -159,7 +159,7 @@ const BookingsManagement = () => {
                 <CardContent className="flex items-center gap-4 p-6">
                   <Icon className="w-8 h-8 text-blue-600" />
                   <div>
-                    <p className="text-sm text-gray-600">{stat.label}</p>
+                    <p className="text-sm text-muted-foreground">{stat.label}</p>
                     <p className="text-2xl font-bold">{stat.value}</p>
                   </div>
                 </CardContent>
@@ -177,7 +177,7 @@ const BookingsManagement = () => {
         <CardContent className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative">
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 placeholder="البحث برقم الحجز أو اسم العميل..."
                 value={searchTerm}
@@ -241,7 +241,7 @@ const BookingsManagement = () => {
                     <TableCell>
                       <div>
                         <p className="font-medium">{booking.clients?.full_name}</p>
-                        <p className="text-sm text-gray-600">{booking.clients?.phone_number}</p>
+                        <p className="text-sm text-muted-foreground">{booking.clients?.phone_number}</p>
                       </div>
                     </TableCell>
                     <TableCell>
@@ -252,7 +252,7 @@ const BookingsManagement = () => {
                     <TableCell>
                       <div>
                         <p>{startDateTime.date}</p>
-                        <p className="text-sm text-gray-600">
+                        <p className="text-sm text-muted-foreground">
                           {startDateTime.time} - {endDateTime.time}
                         </p>
                       </div>
