@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap');
+@import "./styles/tokens.css";
 
 @tailwind base;
 @tailwind components;
@@ -9,23 +10,22 @@
 /* CSS Custom Properties for theming */
 @layer base {
   :root {
-    /* Enhanced color palette for better accessibility */
+    /* Base palette */
     --color-primary: 224 71% 44%;
     --color-primary-foreground: 210 40% 98%;
     --color-secondary: 271 81% 56%;
     --color-secondary-foreground: 210 40% 98%;
     --color-accent: 142 76% 36%;
     --color-accent-foreground: 355 7% 97%;
-    
-    /* Improved background colors */
-    --color-bg: 0 0% 100%;
-    --color-surface: 210 40% 98%;
-    --color-card: 0 0% 100%;
-    
-    /* Enhanced text colors for better contrast */
-    --color-text: 222 84% 5%;
-    --color-text-muted: 215 20% 65%;
-    --color-text-subtle: 215 16% 47%;
+
+    /* Map custom design tokens */
+    --color-bg: var(--color-bg-default);
+    --color-surface: var(--color-bg-surface);
+    --color-card: var(--color-bg-card);
+
+    --color-text: var(--color-text-primary);
+    --color-text-muted: var(--color-text-muted);
+    --color-text-subtle: var(--color-text-secondary);
 
     /* Status colors */
     --color-success: 142 71% 45%;
@@ -38,13 +38,13 @@
     --color-input: 214 32% 91%;
     
     /* Sidebar specific colors */
-    --sidebar-background: 210 40% 98%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 224 71% 44%;
-    --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 210 40% 94%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 214 32% 91%;
+    --sidebar-background: var(--color-sidebar-bg);
+    --sidebar-foreground: var(--color-sidebar-foreground);
+    --sidebar-primary: var(--color-sidebar-primary);
+    --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+    --sidebar-accent: var(--color-sidebar-accent);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+    --sidebar-border: var(--color-sidebar-border);
 
     /* Map to CSS custom properties */
     --background: var(--color-bg);
@@ -76,24 +76,22 @@
   }
 
   .dark {
-    /* Dark mode color palette with improved contrast */
-    --color-bg: 222 84% 5%;
-    --color-surface: 217 33% 17%;
-    --color-card: 224 71% 4%;
-    
-    /* Enhanced dark mode text colors */
-    --color-text: 210 40% 98%;
-    --color-text-muted: 215 20% 65%;
-    --color-text-subtle: 217 32% 83%;
+    /* Dark mode palette */
+    --color-bg: var(--color-bg-default);
+    --color-surface: var(--color-bg-surface);
+    --color-card: var(--color-bg-card);
 
-    /* Dark mode specific colors */
-    --sidebar-background: 224 71% 4%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 222 84% 5%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 17%;
+    --color-text: var(--color-text-primary);
+    --color-text-muted: var(--color-text-muted);
+    --color-text-subtle: var(--color-text-secondary);
+
+    --sidebar-background: var(--color-sidebar-bg);
+    --sidebar-foreground: var(--color-sidebar-foreground);
+    --sidebar-primary: var(--color-sidebar-primary);
+    --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+    --sidebar-accent: var(--color-sidebar-accent);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+    --sidebar-border: var(--color-sidebar-border);
 
     /* Update mappings for dark mode */
     --background: var(--color-bg);
@@ -102,8 +100,8 @@
     --card-foreground: var(--color-text);
     --popover: var(--color-card);
     --popover-foreground: var(--color-text);
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
+    --border: var(--color-border);
+    --input: var(--color-input);
     --muted: var(--color-text-muted);
     --muted-foreground: var(--color-text-subtle);
 

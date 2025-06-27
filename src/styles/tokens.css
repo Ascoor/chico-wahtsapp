@@ -1,0 +1,51 @@
+@layer base {
+  :root {
+    /* Core colors */
+    --color-bg-default: 0 0% 100%;
+    --color-bg-surface: 210 40% 98%;
+    --color-bg-card: 0 0% 100%;
+
+    --color-text-primary: 222 84% 5%;
+    --color-text-muted: 215 20% 65%;
+    --color-text-secondary: 215 16% 47%;
+
+    --color-primary: 224 71% 44%;
+    --color-primary-foreground: 210 40% 98%;
+    --color-secondary: 271 81% 56%;
+    --color-secondary-foreground: 210 40% 98%;
+    --color-accent: 142 76% 36%;
+    --color-accent-foreground: 355 7% 97%;
+
+    --color-border: 214 32% 91%;
+    --color-input: 214 32% 91%;
+
+    --color-sidebar-bg: 210 40% 98%;
+    --color-sidebar-foreground: 222 47% 11%;
+    --color-sidebar-primary: 224 71% 44%;
+    --color-sidebar-primary-foreground: 210 40% 98%;
+    --color-sidebar-accent: 210 40% 94%;
+    --color-sidebar-accent-foreground: 222 47% 11%;
+    --color-sidebar-border: 214 32% 91%;
+  }
+
+  .dark {
+    --color-bg-default: 222 84% 5%;
+    --color-bg-surface: 217 33% 17%;
+    --color-bg-card: 224 71% 4%;
+
+    --color-text-primary: 210 40% 98%;
+    --color-text-muted: 215 20% 65%;
+    --color-text-secondary: 217 32% 83%;
+
+    --color-border: 217 33% 17%;
+    --color-input: 217 33% 17%;
+
+    --color-sidebar-bg: 224 71% 4%;
+    --color-sidebar-foreground: 210 40% 98%;
+    --color-sidebar-primary: 217 91% 60%;
+    --color-sidebar-primary-foreground: 222 84% 5%;
+    --color-sidebar-accent: 217 33% 17%;
+    --color-sidebar-accent-foreground: 210 40% 98%;
+    --color-sidebar-border: 217 33% 17%;
+  }
+}

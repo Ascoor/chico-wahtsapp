@@ -82,7 +82,7 @@ export function ModernSidebar() {
           <nav className="space-y-6">
             {sidebarConfig.groups.map((group, index) => (
               <SidebarNavGroup
-                key={group.label}
+                key={group.id}
                 group={group}
                 isCollapsed={!sidebarOpen}
                 currentPath={location.pathname}

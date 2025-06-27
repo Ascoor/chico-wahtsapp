@@ -13,7 +13,9 @@ import {
   GraduationCap,
   DollarSign,
   Waves,
-  Calculator
+  Calculator,
+  Activity,
+  FileBarChart
 } from 'lucide-react';
 
 export const sidebarConfig = {
@@ -21,6 +23,7 @@ export const sidebarConfig = {
     {
       id: 'dashboard',
       label: 'pages.dashboard',
+      icon: LayoutDashboard,
       items: [
         {
           id: 'main-dashboard',
@@ -32,89 +35,37 @@ export const sidebarConfig = {
       ]
     },
     {
-      id: 'swimming',
-      label: 'pages.swimming',
+      id: 'activities',
+      label: 'pages.activities',
+      icon: Activity,
       items: [
-        { 
-          id: 'swimming-overview',
-          label: 'sidebar.overview', 
-          icon: Waves, 
+        {
+          id: 'swimming',
+          label: 'pages.swimming',
+          icon: Waves,
           href: '/swimming',
-          badge: null 
+          badge: null
         },
-        { 
-          id: 'swimming-schools',
-          label: 'sidebar.schools',
-          icon: School, 
-          href: '/swimming/schools',
-          badge: null 
-        },
-        { 
-          id: 'swimming-private',
-          label: 'sidebar.private',
-          icon: Users, 
-          href: '/swimming/private',
-          badge: null 
-        },
-        { 
-          id: 'swimming-free-time',
-          label: 'sidebar.free_time',
-          icon: Clock, 
-          href: '/swimming/free-time',
-          badge: null 
-        }
-      ]
-    },
-    {
-      id: 'football',
-      label: 'pages.football',
-      items: [
-        { 
-          id: 'football-overview',
-          label: 'sidebar.overview',
-          icon: GraduationCap, 
+        {
+          id: 'football',
+          label: 'pages.football',
+          icon: GraduationCap,
           href: '/football',
-          badge: null 
+          badge: null
         },
-        { 
-          id: 'football-academy',
-          label: 'sidebar.academy',
-          icon: GraduationCap, 
-          href: '/football/academy',
-          badge: null 
-        },
-        { 
-          id: 'football-schools',
-          label: 'sidebar.schools',
-          icon: School, 
-          href: '/football/schools',
-          badge: null 
-        },
-        { 
-          id: 'football-fields',
-          label: 'sidebar.manage_fields',
-          icon: MapPin, 
-          href: '/football/fields',
-          badge: null 
-        }
-      ]
-    },
-    {
-      id: 'fields',
-      label: 'pages.fields',
-      items: [
-        { 
-          id: 'fields-overview',
-          label: 'sidebar.overview',
-          icon: MapPin, 
+        {
+          id: 'fields',
+          label: 'pages.fields',
+          icon: MapPin,
           href: '/fields',
-          badge: null 
+          badge: null
         }
       ]
     },
     {
       id: 'people',
       label: 'sidebar.people',
+      icon: Users,
       items: [
         { 
           id: 'clients',
@@ -142,6 +93,7 @@ export const sidebarConfig = {
     {
       id: 'finance',
       label: 'sidebar.finance',
+      icon: CreditCard,
       items: [
         { 
           id: 'accounting',
@@ -167,29 +119,37 @@ export const sidebarConfig = {
       ]
     },
     {
-      id: 'system',
-      label: 'sidebar.system',
+      id: 'administration',
+      label: 'sidebar.administration',
+      icon: Shield,
       items: [
-        { 
+        {
           id: 'settings',
           label: 'pages.settings',
-          icon: Settings, 
+          icon: Settings,
           href: '/settings',
-          badge: null 
+          badge: null
         },
-        { 
+        {
           id: 'roles',
           label: 'pages.roles',
-          icon: Shield, 
+          icon: Shield,
           href: '/roles',
-          badge: null 
+          badge: null
         },
-        { 
+        {
           id: 'users',
           label: 'pages.users',
-          icon: User, 
+          icon: User,
           href: '/users',
-          badge: null 
+          badge: null
+        },
+        {
+          id: 'reports',
+          label: 'pages.reports',
+          icon: FileBarChart,
+          href: '/reports',
+          badge: null
         }
       ]
     }

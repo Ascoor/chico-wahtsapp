@@ -40,6 +40,18 @@ export const SidebarRail: React.FC = () => {
     sidebarOpen ? 'translate-x-0' : isRTL ? 'translate-x-full lg:translate-x-0' : '-translate-x-full lg:translate-x-0'
   );
 
+  const handleMouseEnter = () => {
+    if (!sidebarOpen && window.innerWidth >= 1024) {
+      setSidebarOpen(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (sidebarOpen && window.innerWidth >= 1024) {
+      setSidebarOpen(false);
+    }
+  };
+
   return (
     <>
       {sidebarOpen && (
@@ -52,12 +64,19 @@ export const SidebarRail: React.FC = () => {
         />
       )}
 
-      <motion.aside ref={ref} className={sidebarClasses} role="navigation" aria-label={t('navigation.main')}>
+      <motion.aside
+        ref={ref}
+        className={sidebarClasses}
+        role="navigation"
+        aria-label={t('navigation.main')}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
         <SidebarHeader />
         <div className="flex-1 overflow-y-auto px-3 py-4">
           {sidebarConfig.groups.map((group) => (
             <SidebarNavGroup
-              key={group.label}
+              key={group.id}
               group={group}
               isCollapsed={!sidebarOpen}
               currentPath={location.pathname}
