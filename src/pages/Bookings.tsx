@@ -1,6 +1,6 @@
 
 import React from 'react';
-import BookingList from './bookings/BookingList';
+import BookingList from '@/features/bookings/pages/BookingList';
 
 const Bookings = () => {
   return <BookingList />;

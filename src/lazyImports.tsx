@@ -10,9 +10,9 @@ const LoginForm = React.lazy(() => import('@/components/auth/LoginForm'));
 const ProtectedRoute = React.lazy(() => import('@/components/auth/ProtectedRoute'));
 const RegisterForm = React.lazy(() => import('@/components/auth/RegisterForm'));
 const BookingModal = React.lazy(() =>
-  import('@/components/bookings/BookingModal').then((m) => ({ default: m.BookingModal }))
+  import('@/features/bookings/components/BookingModal').then((m) => ({ default: m.BookingModal }))
 );
-const BookingsManagement = React.lazy(() => import('@/components/bookings/BookingsManagement'));
+const BookingsManagement = React.lazy(() => import('@/features/bookings/components/BookingsManagement'));
 const FacilitiesManagement = React.lazy(() => import('@/components/facilities/FacilitiesManagement'));
 const FacilityModal = React.lazy(() =>
   import('@/components/facilities/FacilityModal').then((m) => ({ default: m.FacilityModal }))
@@ -82,7 +82,7 @@ const Swimming = React.lazy(() => import('@/pages/Swimming'));
 const Users = React.lazy(() => import('@/pages/Users'));
 const BookingsPage = React.lazy(() => import('@/pages/admin/BookingsPage'));
 const FacilitiesPage = React.lazy(() => import('@/pages/admin/FacilitiesPage'));
-const BookingList = React.lazy(() => import('@/pages/bookings/BookingList'));
+const BookingList = React.lazy(() => import('@/features/bookings/pages/BookingList'));
 const ClientList = React.lazy(() => import('@/pages/clients/ClientList'));
 const Collections = React.lazy(() => import('@/pages/finance/Collections'));
 const Pricing = React.lazy(() => import('@/pages/finance/Pricing'));

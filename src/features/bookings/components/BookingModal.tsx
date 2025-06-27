@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { bookingsService, Booking, CreateBookingData } from '@/services/bookings';
+import { bookingsService, Booking, CreateBookingData } from '@/features/bookings/api/bookings';
 import { clientsService, Client } from '@/services/clients';
 import { facilitiesService, SwimmingActivity, FieldActivity } from '@/services/facilities';
 import { useToast } from '@/hooks/use-toast';
@@ -308,15 +308,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <CardContent className="space-y-4">
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
-                    <p className="text-sm text-gray-600">المبلغ الإجمالي</p>
+                    <p className="text-sm text-muted-foreground">المبلغ الإجمالي</p>
                     <p className="text-xl font-bold text-blue-600">{pricing.totalPrice} ر.س</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">المقدم ({selectedActivity.deposit_percentage}%)</p>
+                    <p className="text-sm text-muted-foreground">المقدم ({selectedActivity.deposit_percentage}%)</p>
                     <p className="text-xl font-bold text-orange-600">{pricing.depositAmount} ر.س</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-600">المبلغ المتبقي</p>
+                    <p className="text-sm text-muted-foreground">المبلغ المتبقي</p>
                     <p className="text-xl font-bold text-green-600">{pricing.remainingAmount} ر.س</p>
                   </div>
                 </div>
