@@ -9,16 +9,24 @@ const AuthModal = React.lazy(() => import('@/components/auth/AuthModal'));
 const LoginForm = React.lazy(() => import('@/components/auth/LoginForm'));
 const ProtectedRoute = React.lazy(() => import('@/components/auth/ProtectedRoute'));
 const RegisterForm = React.lazy(() => import('@/components/auth/RegisterForm'));
-const BookingModal = React.lazy(() => import('@/components/bookings/BookingModal'));
+const BookingModal = React.lazy(() =>
+  import('@/components/bookings/BookingModal').then((m) => ({ default: m.BookingModal }))
+);
 const BookingsManagement = React.lazy(() => import('@/components/bookings/BookingsManagement'));
 const FacilitiesManagement = React.lazy(() => import('@/components/facilities/FacilitiesManagement'));
-const FacilityModal = React.lazy(() => import('@/components/facilities/FacilityModal'));
+const FacilityModal = React.lazy(() =>
+  import('@/components/facilities/FacilityModal').then((m) => ({ default: m.FacilityModal }))
+);
 const ActivityForm = React.lazy(() => import('@/components/forms/ActivityForm'));
 const BookingForm = React.lazy(() => import('@/components/forms/BookingForm'));
 const ClientForm = React.lazy(() => import('@/components/forms/ClientForm'));
-const CoachForm = React.lazy(() => import('@/components/forms/CoachForm'));
+const CoachForm = React.lazy(() =>
+  import('@/components/forms/CoachForm').then((m) => ({ default: m.CoachForm }))
+);
 const ConfirmDeleteModal = React.lazy(() => import('@/components/forms/ConfirmDeleteModal'));
-const PlayerForm = React.lazy(() => import('@/components/forms/PlayerForm'));
+const PlayerForm = React.lazy(() =>
+  import('@/components/forms/PlayerForm').then((m) => ({ default: m.PlayerForm }))
+);
 const About = React.lazy(() => import('@/components/landing/About'));
 const Contact = React.lazy(() => import('@/components/landing/Contact'));
 const Features = React.lazy(() => import('@/components/landing/Features'));
@@ -32,15 +40,29 @@ const Layout = React.lazy(() => import('@/components/layout/Layout'));
 const PageWrapper = React.lazy(() => import('@/components/layout/PageWrapper'));
 const ResponsiveContainer = React.lazy(() => import('@/components/layout/ResponsiveContainer'));
 const Sidebar = React.lazy(() => import('@/components/layout/Sidebar'));
-const SidebarProvider = React.lazy(() => import('@/components/layout/SidebarProvider'));
+const SidebarProvider = React.lazy(() =>
+  import('@/components/layout/SidebarProvider').then((m) => ({ default: m.SidebarProvider }))
+);
 const SidebarRail = React.lazy(() => import('@/components/layout/SidebarRail'));
 const Topbar = React.lazy(() => import('@/components/layout/Topbar'));
-const ModernSidebar = React.lazy(() => import('@/components/layout/modernSidebar/ModernSidebar'));
-const SidebarHeader = React.lazy(() => import('@/components/layout/modernSidebar/SidebarHeader'));
-const SidebarNavGroup = React.lazy(() => import('@/components/layout/modernSidebar/SidebarNavGroup'));
-const SidebarNavItem = React.lazy(() => import('@/components/layout/modernSidebar/SidebarNavItem'));
-const AppointmentModal = React.lazy(() => import('@/components/modals/AppointmentModal'));
-const StyleControlPanel = React.lazy(() => import('@/components/panels/StyleControlPanel'));
+const ModernSidebar = React.lazy(() =>
+  import('@/components/layout/modernSidebar/ModernSidebar').then((m) => ({ default: m.ModernSidebar }))
+);
+const SidebarHeader = React.lazy(() =>
+  import('@/components/layout/modernSidebar/SidebarHeader').then((m) => ({ default: m.SidebarHeader }))
+);
+const SidebarNavGroup = React.lazy(() =>
+  import('@/components/layout/modernSidebar/SidebarNavGroup').then((m) => ({ default: m.SidebarNavGroup }))
+);
+const SidebarNavItem = React.lazy(() =>
+  import('@/components/layout/modernSidebar/SidebarNavItem').then((m) => ({ default: m.SidebarNavItem }))
+);
+const AppointmentModal = React.lazy(() =>
+  import('@/components/modals/AppointmentModal').then((m) => ({ default: m.AppointmentModal }))
+);
+const StyleControlPanel = React.lazy(() =>
+  import('@/components/panels/StyleControlPanel').then((m) => ({ default: m.StyleControlPanel }))
+);
 const AppLogo = React.lazy(() => import('@/components/ui/AppLogo'));
 const Activities = React.lazy(() => import('@/pages/Activities'));
 const Bookings = React.lazy(() => import('@/pages/Bookings'));
@@ -58,7 +80,6 @@ const Roles = React.lazy(() => import('@/pages/Roles'));
 const Settings = React.lazy(() => import('@/pages/Settings'));
 const Swimming = React.lazy(() => import('@/pages/Swimming'));
 const Users = React.lazy(() => import('@/pages/Users'));
-const SportsOverview = React.lazy(() => import('@/pages/SportsOverview'));
 const BookingsPage = React.lazy(() => import('@/pages/admin/BookingsPage'));
 const FacilitiesPage = React.lazy(() => import('@/pages/admin/FacilitiesPage'));
 const BookingList = React.lazy(() => import('@/pages/bookings/BookingList'));
@@ -78,8 +99,6 @@ const SwimmingDashboard = React.lazy(() => import('@/modules/swimming/components
 const FootballDashboard = React.lazy(() => import('@/modules/football/components/FootballDashboard'));
 const FieldsDashboard = React.lazy(() => import('@/modules/fields/components/FieldsDashboard'));
 const AccountingDashboard = React.lazy(() => import('@/modules/accounting/components/AccountingDashboard'));
-const SportSelector = React.lazy(() => import('@/modules/shared/components/SportSelector'));
-const ReportsOverview = React.lazy(() => import('@/modules/shared/components/ReportsOverview'));
 
 function LazyApp() {
   return (
@@ -92,3 +111,95 @@ function LazyApp() {
 }
 
 export default LazyApp;
+
+// Core utilities
+export {
+  LoadingOverlay,
+  RouteChangeListener,
+};
+
+// Auth components
+export {
+  AuthForms,
+  AuthModal,
+  LoginForm,
+  ProtectedRoute,
+  RegisterForm,
+};
+
+// Booking related components
+export {
+  BookingModal,
+  BookingsManagement,
+  FacilitiesManagement,
+  FacilityModal,
+  BookingForm,
+  ActivityForm,
+  ClientForm,
+  CoachForm,
+  ConfirmDeleteModal,
+  PlayerForm,
+};
+
+// Layout components
+export {
+  ContextCard,
+  DashboardLayout,
+  Layout,
+  PageWrapper,
+  ResponsiveContainer,
+  Sidebar,
+  SidebarProvider,
+  SidebarRail,
+  Topbar,
+  ModernSidebar,
+  SidebarHeader,
+  SidebarNavGroup,
+  SidebarNavItem,
+};
+
+// Misc UI
+export {
+  StyleControlPanel,
+  AppointmentModal,
+  AppLogo,
+};
+
+// Pages
+export {
+  Activities,
+  Bookings,
+  Clients,
+  Coaches,
+  Dashboard,
+  Fields,
+  Landing,
+  Login,
+  NotFound,
+  Players,
+  PremiumDashboard,
+  ResetPassword,
+  Roles,
+  Settings,
+  Swimming,
+  Users,
+  BookingsPage,
+  FacilitiesPage,
+  BookingList,
+  ClientList,
+  Collections,
+  Pricing,
+  Academy,
+  Schools,
+  FreeTime,
+  FreeTimeBookings,
+  Private,
+  PrivateBookings,
+  SchoolsBookings,
+  SwimmingTabs,
+  UserList,
+  SwimmingDashboard,
+  FootballDashboard,
+  FieldsDashboard,
+  AccountingDashboard,
+};
