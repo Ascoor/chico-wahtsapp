@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master  # The branch that you are watching for deployment
 
 jobs:
   build-and-deploy:
@@ -16,20 +16,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '20'  # Specify the Node.js version suitable for your project
           cache: 'yarn'
 
       - name: Install dependencies
         run: yarn install
 
       - name: Build project
-        run: yarn build-gh-pages
+        run: yarn build-gh-pages  # Run the build command for GitHub Pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
-          destination_dir: /
-          force_orphan: true
+          publish_dir: ./dist  # The relative path to your dist folder (use `./dist`)
