@@ -201,6 +201,10 @@ const resources = {
       'swimming.tabs.private': 'Private Bookings',
       'swimming.tabs.freetime': 'Free Time',
       'swimming.tabs.schools': 'Schools',
+      'departments.swimming.private': 'Private Swimming',
+      'departments.swimming.school': 'School Swimming',
+      'departments.swimming.free': 'Free Period',
+      'departments.football.academy': 'Academy',
     }
   },
   ar: {
@@ -402,6 +406,10 @@ const resources = {
       'swimming.tabs.private': 'حجوزات خاصة',
       'swimming.tabs.freetime': 'الأوقات الحرة',
       'swimming.tabs.schools': 'المدارس',
+      'departments.swimming.private': 'السباحة الخاصة',
+      'departments.swimming.school': 'سباحة المدارس',
+      'departments.swimming.free': 'السباحة الحرة',
+      'departments.football.academy': 'الأكاديميات',
     }
   }
 };
