@@ -40,7 +40,7 @@ const App = () => (
       <Sonner />
       <LoadingOverlay />
       <AuthProvider>
-        <BrowserRouter>
+<BrowserRouter basename="/chico-wahtsapp">
           <RouteChangeListener />
             <Routes>
               {/* Public Routes */}

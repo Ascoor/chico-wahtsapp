@@ -1,32 +1,18 @@
 name: Deploy to GitHub Pages
-
 on:
-  push:
-    branches:
-      - master  # The branch that you are watching for deployment
-
+  push: { branches: [ master ] }
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: '20'  # Specify the Node.js version suitable for your project
+          node-version: '20'
           cache: 'yarn'
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: Build project
-        run: yarn deploy  # Run the build command for GitHub Pages
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - run: yarn install               # install deps
+      - run: npm run build-gh-pages     # build with mode gh-pages
+      - uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # The relative path to your dist folder (use `./dist`)
+          publish_dir: ./dist           # relative path to dist
