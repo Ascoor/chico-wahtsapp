@@ -1,8 +1,8 @@
 export interface SportModule {
   id: string;
   name: string;
-  playersTable?: string;
-  coachesTable?: string;
+  playersTable: string;
+  coachesTable: string;
   facilitiesTable: string;
 }
 
@@ -15,20 +15,10 @@ export const sportsConfig: SportModule[] = [
     facilitiesTable: 'fields'
   },
   {
-    id: 'swimming_private',
-    name: 'Private Swimming',
-    coachesTable: 'swimming_trainers',
-    facilitiesTable: 'pools'
-  },
-  {
-    id: 'swimming_school',
-    name: 'School Swimming',
-    coachesTable: 'swimming_trainers',
-    facilitiesTable: 'pools'
-  },
-  {
-    id: 'swimming_free',
-    name: 'Free Period Swimming',
+    id: 'swimming',
+    name: 'swimming',
+    playersTable: 'swimmers',
+    coachesTable: 'swimming_coaches',
     facilitiesTable: 'pools'
   }
 ];

@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
   },
 
   // Set base path depending on build mode so GitHub Pages serves assets correctly
-base:  '/chico-wahtsapp/' ,
+  base: process.env.NODE_ENV === 'production' ? '/chico-wahtsapp/' : '/',
 
 
   plugins: [
