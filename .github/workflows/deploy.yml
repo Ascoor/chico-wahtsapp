@@ -23,7 +23,7 @@ jobs:
         run: yarn install
 
       - name: Build project
-        run: yarn build-gh-pages  # Run the build command for GitHub Pages
+        run: yarn deploy  # Run the build command for GitHub Pages
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
