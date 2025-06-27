@@ -53,3 +53,76 @@ CREATE TABLE IF NOT EXISTS payments (
     paid_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (booking_id) REFERENCES bookings(id) ON DELETE CASCADE
 );
+
+-- Fields table for independent field management
+CREATE TABLE IF NOT EXISTS fields (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    sport ENUM('football','basketball','tennis','swimming') NOT NULL,
+    location VARCHAR(200),
+    is_active BOOLEAN DEFAULT TRUE
+);
+
+-- Swimming Departments
+CREATE TABLE IF NOT EXISTS swimming_trainers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS swimming_private_bookings (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    client_id INT NOT NULL,
+    trainer_id INT NOT NULL,
+    date DATE NOT NULL,
+    time_from TIME NOT NULL,
+    time_to TIME NOT NULL,
+    status ENUM('pending','confirmed','completed','cancelled') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE,
+    FOREIGN KEY (trainer_id) REFERENCES swimming_trainers(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS swimming_school_bookings (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    client_id INT NOT NULL,
+    trainer_id INT NOT NULL,
+    school_name VARCHAR(100),
+    date DATE NOT NULL,
+    time_from TIME NOT NULL,
+    time_to TIME NOT NULL,
+    status ENUM('pending','confirmed','completed','cancelled') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE,
+    FOREIGN KEY (trainer_id) REFERENCES swimming_trainers(id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS swimming_free_bookings (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    client_id INT NOT NULL,
+    date DATE NOT NULL,
+    time_from TIME NOT NULL,
+    time_to TIME NOT NULL,
+    status ENUM('pending','confirmed','completed','cancelled') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
+);
+
+-- Football Academies
+CREATE TABLE IF NOT EXISTS football_academies (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS football_players (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    academy_id INT,
+    name VARCHAR(100) NOT NULL,
+    FOREIGN KEY (academy_id) REFERENCES football_academies(id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS football_coaches (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    academy_id INT,
+    FOREIGN KEY (academy_id) REFERENCES football_academies(id) ON DELETE SET NULL
+);
